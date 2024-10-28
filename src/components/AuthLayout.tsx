@@ -3,7 +3,7 @@ import AuthLogo from "../components/logos/AuthLogo";
 
 export default function AuthLayout() {
   return (
-    <main className="flex flex-col items-center justify-center h-screen">
+    <main className="bg-tertiary-900 flex h-screen flex-col items-center justify-center font-sans">
       <AuthLogo />
       <Outlet />
     </main>
