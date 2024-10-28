@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 import Profile from "./pages/Profile";
 import AppLayout from "./components/AppLayout";
+import ProfileEdit from "./pages/ProfileEdit";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="explore" element={<Explore />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="profile/edit" element={<ProfileEdit />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />
