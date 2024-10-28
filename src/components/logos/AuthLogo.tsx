@@ -5,7 +5,11 @@ export default function AuthLogo() {
   return (
     <>
       <Link to="/auth">
-        <img src={authLogo} alt="auth logo" className="w-60 h-60" />
+        <img
+          src={authLogo}
+          alt="auth logo"
+          className="aspect-square w-full max-w-32"
+        />
       </Link>
     </>
   );
