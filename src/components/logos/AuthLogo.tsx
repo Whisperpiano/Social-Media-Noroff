@@ -7,7 +7,7 @@ export default function AuthLogo() {
       <img
         src={authLogo}
         alt="auth logo"
-        className="aspect-square w-full max-w-32"
+        className="aspect-square w-full max-w-32 transition-opacity duration-500 hover:opacity-90"
       />
     </Link>
   );
