@@ -18,6 +18,7 @@ export default function Register() {
             id="name"
             maxLength={20}
             pattern="^[\w]+$"
+            autoComplete="off"
             title="Please enter a username using only letters and numbers"
             required
           />
@@ -30,6 +31,7 @@ export default function Register() {
             name="email"
             id="email"
             pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+            autoComplete="off"
             title="Please enter a valid noroff.no or stud.noroff.no address"
             required
           />
@@ -41,6 +43,7 @@ export default function Register() {
             type="password"
             name="password"
             id="password"
+            autoComplete="off"
             minLength={8}
             required
           />
