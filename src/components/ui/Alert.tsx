@@ -1,6 +1,6 @@
 import { PiInfoFill, PiXBold } from "react-icons/pi";
 
-export default function Alert() {
+export default function Alert({ message }: { message: string }) {
   return (
     <div
       id="alert"
@@ -9,9 +9,7 @@ export default function Alert() {
     >
       <PiInfoFill size={20} />
       <span className="sr-only">Alert info</span>
-      <div className="ms-2.5">
-        Hashtags gaining traction on Noroff Social today.
-      </div>
+      <div className="ms-2.5">{message}</div>
 
       <button
         type="button"

@@ -9,7 +9,7 @@ export default function ExploreTabs() {
       <NavLink
         to="/explore/posts"
         className={({ isActive }) =>
-          `relative flex-1 ${isActive ? activeStyles : ""}`
+          `relative flex-1 ${isActive ? activeStyles : "text-tertiary-200 transition-colors duration-300 hover:text-tertiary-50"}`
         }
       >
         Posts
@@ -17,7 +17,7 @@ export default function ExploreTabs() {
       <NavLink
         to="/explore/hashtags"
         className={({ isActive }) =>
-          `relative flex-1 ${isActive ? activeStyles : ""}`
+          `relative flex-1 ${isActive ? activeStyles : "text-tertiary-200 transition-colors duration-300 hover:text-tertiary-50"}`
         }
       >
         Hashtags
@@ -25,18 +25,10 @@ export default function ExploreTabs() {
       <NavLink
         to="/explore/people"
         className={({ isActive }) =>
-          `relative flex-1 ${isActive ? activeStyles : ""}`
+          `relative flex-1 ${isActive ? activeStyles : "text-tertiary-200 transition-colors duration-300 hover:text-tertiary-50"}`
         }
       >
         People
-      </NavLink>
-      <NavLink
-        to="/explore/trending"
-        className={({ isActive }) =>
-          `relative flex-1 ${isActive ? activeStyles : ""}`
-        }
-      >
-        Trending
       </NavLink>
     </div>
   );

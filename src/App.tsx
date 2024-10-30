@@ -11,6 +11,7 @@ import AppLayout from "./components/layouts/AppLayout";
 import ProfileEdit from "./pages/ProfileEdit";
 import ExplorePosts from "./components/explore/ExplorePosts";
 import ExploreHashtags from "./components/explore/ExploreHashtags";
+import ExplorePeople from "./components/explore/ExplorePeople";
 
 function App() {
   return (
@@ -30,8 +31,7 @@ function App() {
             <Route index element={<Navigate to="posts" replace />} />
             <Route path="posts" element={<ExplorePosts />} />
             <Route path="hashtags" element={<ExploreHashtags />} />
-            <Route path="people" element={<p>people</p>} />
-            <Route path="trending" element={<p>trending</p>} />
+            <Route path="people" element={<ExplorePeople />} />
           </Route>
           <Route path="profile" element={<Profile />} />
           <Route path="profile/edit" element={<ProfileEdit />} />

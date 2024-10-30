@@ -12,4 +12,12 @@
   .btn-primary:hover {
     @apply bg-primary-700 text-tertiary-50;
   }
+
+  .btn-secondary {
+    @apply min-w-[100px] rounded-lg border border-primary-500 bg-transparent px-4 py-2 text-center font-sans font-semibold text-primary-500 transition-colors duration-300;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-primary-900 text-primary-100;
+  }
 }
