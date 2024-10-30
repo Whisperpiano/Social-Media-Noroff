@@ -14,7 +14,7 @@ export default function Navigation() {
   return (
     <aside className="w-full max-w-[280px]">
       <nav className="flex items-center justify-between">
-        <ul className="flex w-full flex-col gap-2">
+        <ul className="mr-5 flex w-full flex-col gap-2">
           <Logo />
           <NavItem to="/home" label="Home" icon={PiHouse} />
           <NavItem to="/explore" label="Explore" icon={PiCompass} />
