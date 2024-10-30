@@ -13,6 +13,10 @@ import ExplorePosts from "./components/explore/ExplorePosts";
 import ExploreHashtags from "./components/explore/ExploreHashtags";
 import ExplorePeople from "./components/explore/ExplorePeople";
 import Search from "./pages/Search";
+import SearchAll from "./components/search/SearchAll";
+import SearchPosts from "./components/search/SearchPosts";
+import SearchProfiles from "./components/search/SearchProfiles";
+import SearchHashtags from "./components/search/SearchHashtags";
 
 function App() {
   return (
@@ -41,10 +45,10 @@ function App() {
           {/* Search */}
           <Route path="search" element={<Search />}>
             <Route index element={<Navigate to="all" replace />} />
-            <Route path="all" element={<p>all</p>} />
-            <Route path="posts" element={<p>posts</p>} />
-            <Route path="profiles" element={<p>people</p>} />
-            <Route path="hashtags" element={<p>hashtags</p>} />
+            <Route path="all" element={<SearchAll />} />
+            <Route path="posts" element={<SearchPosts />} />
+            <Route path="profiles" element={<SearchProfiles />} />
+            <Route path="hashtags" element={<SearchHashtags />} />
           </Route>
           {/* Profile */}
           <Route path="profile" element={<Profile />} />
