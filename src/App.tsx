@@ -3,11 +3,11 @@ import Auth from "./pages/Auth";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PageNotFound from "./pages/PageNotFound";
-import AuthLayout from "./components/AuthLayout";
+import AuthLayout from "./components/layouts/AuthLayout";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 import Profile from "./pages/Profile";
-import AppLayout from "./components/AppLayout";
+import AppLayout from "./components/layouts/AppLayout";
 import ProfileEdit from "./pages/ProfileEdit";
 
 function App() {

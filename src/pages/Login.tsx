@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Input from "../components/Input";
-import Label from "../components/Label";
+import Input from "../components/elements/Input";
+import Label from "../components/elements/Label";
 
 export default function Login() {
   return (
