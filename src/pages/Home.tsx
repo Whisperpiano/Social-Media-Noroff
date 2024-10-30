@@ -1,5 +1,4 @@
 import PostCard from "../components/posts/PostCard";
-import Divider from "../components/ui/Divider";
 import { PiHouseFill } from "react-icons/pi";
 
 export default function Home() {
