@@ -3,7 +3,7 @@ import Divider from "../ui/Divider";
 import UserProfile from "../userPanel/UserProfile";
 import PostFooter from "./PostFooter";
 
-export default function PostCard() {
+export default function PostCard({ image = false }) {
   return (
     <>
       <article className="flex flex-col gap-5 p-5">
@@ -23,6 +23,14 @@ export default function PostCard() {
           <Badge text="react" />
           <Badge text="react" />
         </div>
+
+        {image && (
+          <img
+            src={"/placeholder_horizontal.jpg"}
+            alt="placeholder"
+            className="w-full rounded-lg object-cover object-center"
+          />
+        )}
 
         <PostFooter />
       </article>

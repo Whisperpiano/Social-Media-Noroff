@@ -12,8 +12,8 @@ import NavItem from "./NavItem";
 
 export default function Navigation() {
   return (
-    <aside className="w-full max-w-[280px]">
-      <nav className="flex items-center justify-between">
+    <aside className="relative w-full max-w-[280px]">
+      <nav className="sticky top-5 flex items-center justify-between">
         <ul className="mr-5 flex w-full flex-col gap-2">
           <Logo />
           <NavItem to="/home" label="Home" icon={PiHouse} />
