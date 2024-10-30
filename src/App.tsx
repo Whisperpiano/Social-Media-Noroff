@@ -9,6 +9,9 @@ import Explore from "./pages/Explore";
 import Profile from "./pages/Profile";
 import AppLayout from "./components/layouts/AppLayout";
 import ProfileEdit from "./pages/ProfileEdit";
+import ExplorePosts from "./components/explore/ExplorePosts";
+import ExploreHashtags from "./components/explore/ExploreHashtags";
+import ExplorePeople from "./components/explore/ExplorePeople";
 
 function App() {
   return (
@@ -24,7 +27,12 @@ function App() {
 
         <Route path="/" element={<AppLayout />}>
           <Route path="home" element={<Home />} />
-          <Route path="explore" element={<Explore />} />
+          <Route path="explore" element={<Explore />}>
+            <Route index element={<Navigate to="posts" replace />} />
+            <Route path="posts" element={<ExplorePosts />} />
+            <Route path="hashtags" element={<ExploreHashtags />} />
+            <Route path="people" element={<ExplorePeople />} />
+          </Route>
           <Route path="profile" element={<Profile />} />
           <Route path="profile/edit" element={<ProfileEdit />} />
         </Route>
