@@ -17,7 +17,7 @@ import SearchPosts from "./components/search/SearchPosts";
 import SearchProfiles from "./components/search/SearchProfiles";
 import SearchHashtags from "./components/search/SearchHashtags";
 import ProfileEdit from "./pages/ProfileEdit";
-import SinglePost from "./pages/SInglePost";
+import SinglePost from "./pages/SinglePost";
 
 function App() {
   return (
