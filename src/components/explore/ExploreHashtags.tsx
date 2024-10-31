@@ -3,7 +3,7 @@ import Hashtag from "../ui/Hashtag";
 
 export default function ExploreHashtags() {
   return (
-    <>
+    <section className="relative border-x-[1px] border-tertiary-500">
       <div className="p-5">
         <Alert message="Hashtags gaining traction on Noroff Social today." />
       </div>
@@ -27,6 +27,6 @@ export default function ExploreHashtags() {
       <Hashtag text="firebase" />
       <Hashtag text="aws" />
       <Hashtag text="docker" />
-    </>
+    </section>
   );
 }
