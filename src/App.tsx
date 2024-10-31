@@ -17,6 +17,7 @@ import SearchPosts from "./components/search/SearchPosts";
 import SearchProfiles from "./components/search/SearchProfiles";
 import SearchHashtags from "./components/search/SearchHashtags";
 import ProfileEdit from "./pages/ProfileEdit";
+import SinglePost from "./pages/SInglePost";
 
 function App() {
   return (
@@ -53,6 +54,8 @@ function App() {
           {/* Profile */}
           <Route path="profile/:nickname" element={<Profile />} />
           <Route path="profile/edit" element={<ProfileEdit />} />
+          {/* Post */}
+          <Route path="post/:id" element={<SinglePost />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />
