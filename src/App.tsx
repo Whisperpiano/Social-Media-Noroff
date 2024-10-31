@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 import Profile from "./pages/Profile";
 import AppLayout from "./components/layouts/AppLayout";
-import ProfileEdit from "./pages/ProfileEdit";
 import ExplorePosts from "./components/explore/ExplorePosts";
 import ExploreHashtags from "./components/explore/ExploreHashtags";
 import ExplorePeople from "./components/explore/ExplorePeople";
@@ -17,6 +16,7 @@ import SearchAll from "./components/search/SearchAll";
 import SearchPosts from "./components/search/SearchPosts";
 import SearchProfiles from "./components/search/SearchProfiles";
 import SearchHashtags from "./components/search/SearchHashtags";
+import ProfileEdit from "./pages/ProfileEdit";
 
 function App() {
   return (
@@ -51,7 +51,7 @@ function App() {
             <Route path="hashtags" element={<SearchHashtags />} />
           </Route>
           {/* Profile */}
-          <Route path="profile" element={<Profile />} />
+          <Route path="profile/:nickname" element={<Profile />} />
           <Route path="profile/edit" element={<ProfileEdit />} />
         </Route>
 

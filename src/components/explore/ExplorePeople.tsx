@@ -12,11 +12,13 @@ export default function ExplorePeople() {
       </div>
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={false} />
@@ -24,11 +26,13 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={false} />
@@ -36,11 +40,14 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
+
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={false} />
@@ -48,11 +55,13 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={true} />
@@ -60,11 +69,13 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={true} />
@@ -72,11 +83,14 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
+
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={false} />
@@ -84,11 +98,14 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
+
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={false} />
@@ -96,11 +113,14 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
+
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={false} />
@@ -108,11 +128,14 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
+
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={true} />
@@ -120,11 +143,14 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
+
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={true} />
@@ -132,11 +158,13 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={false} />
@@ -144,11 +172,14 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
+
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={false} />
@@ -156,11 +187,14 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
+
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={false} />
@@ -168,11 +202,14 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
+
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={true} />
@@ -180,11 +217,14 @@ export default function ExplorePeople() {
       <Divider />
       <div className="flex items-center justify-between p-5">
         <div className="flex cursor-pointer items-center gap-2.5">
-          <Avatar
-            src={"/avatar_placeholder.jpg"}
-            alt="Avatar placeholder"
-            indicator={false}
-          />
+          <div className="max-w-12">
+            <Avatar
+              src={"/avatar_placeholder.jpg"}
+              alt="Avatar placeholder"
+              indicator={false}
+            />
+          </div>
+
           <NickName nickname="nickname" />
         </div>
         <FollowBtn isFollowing={true} />
