@@ -18,7 +18,7 @@ import NavItem from "./NavItem";
 
 export default function Navigation() {
   return (
-    <aside className="relative w-full max-w-[280px]">
+    <aside className="relative ml-2.5 w-full max-w-[280px]">
       <nav className="sticky top-5 flex items-center justify-between">
         <ul className="mr-5 flex w-full flex-col gap-2">
           <Logo />
