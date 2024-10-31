@@ -1,221 +1,49 @@
-import Avatar from "../ui/Avatar";
-import Divider from "../ui/Divider";
-import FollowBtn from "../ui/FollowBtn";
-import NickName from "../userPanel/NickName";
+import UserProfile from "../userPanel/UserProfile";
 
 export default function SearchProfiles() {
   return (
-    <>
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={false} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={false} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={false} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={true} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={true} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={false} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={false} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={false} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={true} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={true} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={false} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={false} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={false} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={true} />
-      </div>
-      <Divider />
-      <div className="flex items-center justify-between p-5">
-        <div className="flex cursor-pointer items-center gap-2.5">
-          <div className="max-w-12">
-            <Avatar
-              src={"/avatar_placeholder.jpg"}
-              alt="Avatar placeholder"
-              indicator={false}
-            />
-          </div>
-          <NickName nickname="nickname" />
-        </div>
-        <FollowBtn isFollowing={true} />
-      </div>
-      <Divider />
-    </>
+    <section className="relative border-x-[1px] border-tertiary-500">
+      <section>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+        <article className="border-y border-tertiary-500 p-5">
+          <UserProfile isUserPanel={false} isMainUser={false} />
+        </article>
+      </section>
+    </section>
   );
 }

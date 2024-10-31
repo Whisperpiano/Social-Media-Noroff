@@ -2,7 +2,7 @@ import Hashtag from "../ui/Hashtag";
 
 export default function SearchHashtags() {
   return (
-    <>
+    <section className="relative border-x-[1px] border-tertiary-500">
       <Hashtag text="react" />
       <Hashtag text="tailwindcss" />
       <Hashtag text="reactrouter" />
@@ -23,6 +23,6 @@ export default function SearchHashtags() {
       <Hashtag text="firebase" />
       <Hashtag text="aws" />
       <Hashtag text="docker" />
-    </>
+    </section>
   );
 }
