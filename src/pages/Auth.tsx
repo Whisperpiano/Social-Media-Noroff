@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Auth() {
   return (
     <>
-      <h1 className="mb-5 font-sans text-xl font-semibold">
+      <h1 className="mb-5 font-sans text-2xl font-semibold">
         Welcome to the Noroff Social Network
       </h1>
       <p className="font-sans text-base font-normal">

@@ -25,7 +25,7 @@ export default function SearchBar() {
     <form name="search" onSubmit={handleSubmit}>
       <label
         htmlFor="default-search"
-        className="sr-only mb-2 text-sm font-medium"
+        className="sr-only mb-2 text-sm font-medium lg:text-base"
       >
         Search
       </label>
@@ -52,7 +52,7 @@ export default function SearchBar() {
         <input
           type="search"
           id="default-search"
-          className="block w-full rounded-lg border-2 border-tertiary-400 bg-tertiary-500 p-4 px-4 py-2.5 ps-10 text-sm text-tertiary-50 outline-none transition-colors duration-300 placeholder:text-tertiary-200/50 focus:border-secondary-200"
+          className="block w-full rounded-lg border-2 border-tertiary-400 bg-tertiary-500 p-4 px-4 py-2.5 ps-10 text-sm text-tertiary-50 outline-none transition-colors duration-300 placeholder:text-tertiary-200/50 focus:border-secondary-200 lg:text-base"
           placeholder="Search"
           value={search}
           onChange={handleChange}

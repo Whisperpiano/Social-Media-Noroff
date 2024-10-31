@@ -14,7 +14,7 @@ export default function Profile() {
         <div className="-translate-y-[50px]">
           <ProfileHeader />
           <section>
-            <div className="border-y border-tertiary-500 p-5">
+            <div className="border-y border-tertiary-500 p-5 text-sm lg:text-base">
               <p>Latest post</p>
             </div>
             <div>

@@ -20,7 +20,7 @@ export default function PostCard({
         <section className="flex flex-col gap-5 p-5">
           <UserProfile isUserPanel={false} isMainUser={false} />
           <Link to={`/post/${id}`}>
-            <p className="text-pretty text-sm font-normal text-tertiary-50">
+            <p className="text-pretty text-sm font-normal text-tertiary-50 lg:text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               faucibus vestibulum mi vel ullamcorper. Nulla facilisi. Vestibulum
               eros ante, tincidunt ac tempor in, molestie ac sem. Curabitur

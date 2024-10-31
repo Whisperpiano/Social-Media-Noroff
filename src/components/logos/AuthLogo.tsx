@@ -3,7 +3,7 @@ import authLogo from "../../assets/auth_logo.svg";
 
 export default function AuthLogo() {
   return (
-    <Link to="/auth" className="mb-10 mt-20">
+    <Link to="/auth" className="mb-10 mt-10 sm:mt-16">
       <img
         src={authLogo}
         alt="auth logo"

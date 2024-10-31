@@ -14,7 +14,9 @@ export default function Header({ icon: Icon, text, children }: HeaderProps) {
         {Icon ? (
           <div className="mt-5 flex w-full items-center gap-2.5 rounded-t-lg border border-tertiary-500 p-5">
             <Icon size={24} fill="currentColor" />
-            <h1 className="font-sans text-base font-normal">{text}</h1>
+            <h1 className="font-sans text-sm font-normal lg:text-base">
+              {text}
+            </h1>
           </div>
         ) : (
           <div className="mt-5 flex w-full items-center gap-2.5 rounded-t-lg border border-tertiary-500 p-5">

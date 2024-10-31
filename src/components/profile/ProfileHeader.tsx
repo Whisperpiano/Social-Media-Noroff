@@ -33,7 +33,7 @@ export default function ProfileHeader() {
             <span className="text-xs font-bold uppercase tracking-wider text-tertiary-200">
               BIO
             </span>
-            <p className="text-xs font-normal text-tertiary-200">
+            <p className="text-xs font-normal text-tertiary-200 lg:text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               faucibus vestibulum mi vel ullamcorper. Nulla facilisi. Vestibulum
               eros ante, tincidunt ac tempor in, molestie ac sem. Curabitur
@@ -46,16 +46,16 @@ export default function ProfileHeader() {
           </div>
         </div>
         <div className="mb-5 flex gap-5 px-5">
-          <p className="flex gap-1 text-xs text-tertiary-200">
+          <p className="flex gap-1 text-xs text-tertiary-200 lg:text-sm">
             <span className="font-semibold text-tertiary-50">15</span>posts
           </p>
 
-          <p className="flex gap-1 text-xs text-tertiary-200">
+          <p className="flex gap-1 text-xs text-tertiary-200 lg:text-sm">
             <span className="font-semibold text-tertiary-50">7</span>
             following
           </p>
 
-          <p className="flex gap-1 text-xs text-tertiary-200">
+          <p className="flex gap-1 text-xs text-tertiary-200 lg:text-sm">
             <span className="font-semibold text-tertiary-50">2</span>
             followers
           </p>
