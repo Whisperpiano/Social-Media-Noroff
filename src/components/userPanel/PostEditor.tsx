@@ -11,7 +11,7 @@ export default function PostEditor() {
           <textarea
             id="postTextarea"
             rows={4}
-            className="w-full resize-none border-0 bg-inherit px-0 text-sm placeholder:text-tertiary-200/50 focus-within:ring-0 focus:outline-none focus:ring-0"
+            className="w-full resize-none border-0 bg-inherit px-0 text-sm placeholder:text-tertiary-200/50 focus-within:ring-0 focus:outline-none focus:ring-0 lg:text-base"
             placeholder="What are you thinking?"
             required
           ></textarea>

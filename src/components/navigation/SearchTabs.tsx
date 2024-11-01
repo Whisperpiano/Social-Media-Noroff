@@ -9,7 +9,7 @@ export default function SearchTabs() {
     "font-semibold text-white before:absolute before:bottom-0 before:left-1/2 before:h-1 before:w-10 before:-translate-x-1/2 before:translate-y-5 before:rounded-lg before:bg-primary-300 before:content-['']";
 
   return (
-    <div className="flex w-full border-x border-b border-tertiary-500 p-5 text-center text-sm">
+    <div className="flex w-full border-x border-b border-tertiary-500 p-5 text-center text-sm lg:text-base">
       <NavLink
         to={`/search/all${searchQuery}`}
         className={({ isActive }) =>

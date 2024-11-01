@@ -4,9 +4,9 @@ import Header from "../components/ui/Header";
 
 export default function Home() {
   return (
-    <section className="relative flex w-full max-w-[600px] flex-col rounded-t-lg">
+    <section className="relative flex w-full flex-1 flex-col xl:max-w-[600px]">
       <Header icon={PiHouseFill} text="Home" />
-      <section className="relative border-x-[1px] border-tertiary-500">
+      <section className="relative border-l border-tertiary-500 xl:border-x">
         <PostCard />
         <PostCard image={true} />
         <PostCard image={true} />

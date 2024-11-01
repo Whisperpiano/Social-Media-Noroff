@@ -4,7 +4,7 @@ export default function Alert({ message }: { message: string }) {
   return (
     <div
       id="alert"
-      className="font-sm flex items-center rounded-lg border border-primary-900 bg-[#0A2927] p-4 font-sans font-normal text-primary-100"
+      className="flex items-center rounded-lg border border-primary-900 bg-[#0A2927] p-4 font-sans text-sm font-normal text-primary-100 lg:text-base"
       role="alert"
     >
       <PiInfoFill size={20} />

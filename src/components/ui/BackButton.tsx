@@ -10,7 +10,7 @@ export default function BackButton() {
       onClick={() => navigate(-1)}
     >
       <PiArrowLeftBold size={24} fill="currentColor" />
-      <h1 className="font-sans text-base font-normal">Back</h1>
+      <h1 className="font-sans text-sm font-normal lg:text-base">Back</h1>
     </button>
   );
 }

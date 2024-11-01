@@ -5,7 +5,7 @@ import UserProfile from "./UserProfile";
 
 export default function UserPanel() {
   return (
-    <aside className="relative w-full max-w-[300px]">
+    <aside className="relative mr-2.5 hidden w-full max-w-[300px] xl:block">
       <div className="sticky top-5 ml-5 flex flex-col gap-5">
         <SearchBar />
         <UserProfile isUserPanel={true} isMainUser={true} />

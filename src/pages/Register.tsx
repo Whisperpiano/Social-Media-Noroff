@@ -5,12 +5,12 @@ import Label from "../components/elements/Label";
 export default function Register() {
   return (
     <>
-      <h1 className="mb-5 font-sans text-xl font-semibold">
+      <h1 className="mb-5 font-sans text-2xl font-semibold">
         Sign up to Noroff Social
       </h1>
 
       <form name="register" className="w-full">
-        <div className="flex flex-col gap-2.5 text-start">
+        <div className="mt-6 flex flex-col gap-2.5 text-start">
           <Label idToConnect="name">Name</Label>
           <Input
             type="text"
@@ -24,7 +24,7 @@ export default function Register() {
           />
         </div>
 
-        <div className="mt-5 flex flex-col gap-2.5 text-start">
+        <div className="mt-6 flex flex-col gap-2.5 text-start">
           <Label idToConnect="email">Email</Label>
           <Input
             type="email"
@@ -37,7 +37,7 @@ export default function Register() {
           />
         </div>
 
-        <div className="mt-5 flex flex-col gap-2.5 text-start">
+        <div className="mt-6 flex flex-col gap-2.5 text-start">
           <Label idToConnect="password">Password</Label>
           <Input
             type="password"
