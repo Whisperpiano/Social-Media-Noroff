@@ -7,6 +7,9 @@ export default {
       fontFamily: {
         sans: ["Roboto", "ui-sans-serif", "system-ui"],
       },
+      screens: {
+        xl: "1200px",
+      },
       colors: {
         primary: {
           50: "#F2FBF9",
