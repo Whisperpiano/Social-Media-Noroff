@@ -18,9 +18,9 @@ import NavItem from "./NavItem";
 
 export default function Navigation() {
   return (
-    <aside className="ml-2.5 mt-2.5 w-full max-w-[280px] xl:relative xl:block">
+    <aside className="tablet:max-w-[280px] ml-2.5 mt-2.5 w-full max-w-fit xl:relative xl:block">
       <nav className="sticky top-[104px] flex items-center justify-between xl:top-5">
-        <ul className="mr-5 flex w-full flex-col gap-2">
+        <ul className="tablet:mr-5 mr-2.5 flex w-full flex-col gap-2">
           <div className="hidden xl:block">
             <Logo />
           </div>

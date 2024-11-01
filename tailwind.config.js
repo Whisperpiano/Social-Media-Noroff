@@ -3,6 +3,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      tablet: "880px",
+    },
     extend: {
       fontFamily: {
         sans: ["Roboto", "ui-sans-serif", "system-ui"],

@@ -28,7 +28,7 @@ export default function NavItem({
         {({ isActive }) => (
           <>
             {isActive ? <Filled size={24} /> : <Normal size={24} />}
-            {label}
+            <span className="tablet:block hidden">{label}</span>
           </>
         )}
       </NavLink>
