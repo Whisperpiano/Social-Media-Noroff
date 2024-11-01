@@ -30,10 +30,10 @@ export default function ProfileHeader() {
         </div>
         <div className="p-5">
           <div className="flex flex-col gap-2.5 rounded-lg border border-tertiary-500 p-2.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-tertiary-200">
+            <span className="text-sm font-bold uppercase tracking-wider text-tertiary-200">
               BIO
             </span>
-            <p className="text-xs font-normal text-tertiary-200 lg:text-sm">
+            <p className="text-pretty text-sm font-normal text-tertiary-200 lg:text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               faucibus vestibulum mi vel ullamcorper. Nulla facilisi. Vestibulum
               eros ante, tincidunt ac tempor in, molestie ac sem. Curabitur

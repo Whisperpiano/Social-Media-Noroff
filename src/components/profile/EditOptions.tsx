@@ -74,7 +74,7 @@ export default function EditOptions() {
           />
         </div>
 
-        <div className="p-5">
+        <div className="mb-20 p-5 sm:mb-0">
           <button
             type="submit"
             className="btn-primary w-full text-sm font-semibold lg:text-base"

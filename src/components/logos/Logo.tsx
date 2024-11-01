@@ -8,7 +8,7 @@ export default function Logo() {
         <img
           src={logo}
           alt="logo"
-          className="w-full max-w-[120px] px-2.5 py-2.5 transition-opacity duration-300 hover:opacity-90"
+          className="w-full max-w-[100px] px-2.5 py-2.5 transition-opacity duration-300 hover:opacity-90 sm:max-w-[120px]"
         />
       </Link>
     </>
