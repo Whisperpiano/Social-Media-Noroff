@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export default function Header({ icon: Icon, text, children }: HeaderProps) {
   return (
-    <header className="sticky top-[94px] z-50 cursor-pointer items-center gap-2.5 bg-tertiary-900 text-tertiary-50 drop-shadow-2xl xl:top-0">
+    <header className="sticky top-[93px] z-50 cursor-pointer items-center gap-2.5 bg-tertiary-900 text-tertiary-50 drop-shadow-2xl xl:top-0">
       <div className="border-b border-l border-tertiary-500 p-5 xl:hidden">
         <SearchBar />
       </div>
