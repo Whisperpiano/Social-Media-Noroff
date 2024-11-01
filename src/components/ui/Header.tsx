@@ -24,7 +24,7 @@ export default function Header({ icon: Icon, text, children }: HeaderProps) {
               </h1>
             </div>
           ) : (
-            <div className="mt-5 flex w-full items-center gap-2.5 rounded-t-lg border border-tertiary-500 p-5">
+            <div className="mt-0 flex w-full items-center gap-2.5 rounded-none border-b border-l border-tertiary-500 p-5 xl:mt-5 xl:rounded-t-lg xl:border">
               <BackButton />
             </div>
           )}
