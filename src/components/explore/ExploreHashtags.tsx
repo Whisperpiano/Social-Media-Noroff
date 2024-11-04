@@ -5,7 +5,10 @@ export default function ExploreHashtags() {
   return (
     <section className="relative border-x-[1px] border-tertiary-500">
       <div className="p-5">
-        <Alert message="Hashtags gaining traction on Noroff Social today." />
+        <Alert
+          message="Hashtags gaining traction on Noroff Social today."
+          type="success"
+        />
       </div>
       <Hashtag text="react" />
       <Hashtag text="tailwindcss" />
