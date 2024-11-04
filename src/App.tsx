@@ -18,6 +18,7 @@ import SearchProfiles from "./components/search/SearchProfiles";
 import SearchHashtags from "./components/search/SearchHashtags";
 import ProfileEdit from "./pages/ProfileEdit";
 import SinglePost from "./pages/SinglePost";
+import PrivateRoute from "./lib/utils/AuthGuard";
 
 function App() {
   return (
@@ -32,30 +33,32 @@ function App() {
           {/* Register */}
           <Route path="register" element={<Register />} />
         </Route>
-
-        <Route path="/" element={<AppLayout />}>
-          {/* Home */}
-          <Route path="home" element={<Home />} />
-          {/* Explore */}
-          <Route path="explore" element={<Explore />}>
-            <Route index element={<Navigate to="posts" replace />} />
-            <Route path="posts" element={<ExplorePosts />} />
-            <Route path="hashtags" element={<ExploreHashtags />} />
-            <Route path="people" element={<ExplorePeople />} />
+        {/* Private Routes */}
+        <Route element={<PrivateRoute />}>
+          <Route path="/" element={<AppLayout />}>
+            {/* Home */}
+            <Route path="home" element={<Home />} />
+            {/* Explore */}
+            <Route path="explore" element={<Explore />}>
+              <Route index element={<Navigate to="posts" replace />} />
+              <Route path="posts" element={<ExplorePosts />} />
+              <Route path="hashtags" element={<ExploreHashtags />} />
+              <Route path="people" element={<ExplorePeople />} />
+            </Route>
+            {/* Search */}
+            <Route path="search" element={<Search />}>
+              <Route index element={<Navigate to="all" replace />} />
+              <Route path="all" element={<SearchAll />} />
+              <Route path="posts" element={<SearchPosts />} />
+              <Route path="profiles" element={<SearchProfiles />} />
+              <Route path="hashtags" element={<SearchHashtags />} />
+            </Route>
+            {/* Profile */}
+            <Route path="profile/:nickname" element={<Profile />} />
+            <Route path="profile/edit" element={<ProfileEdit />} />
+            {/* Post */}
+            <Route path="post/:id" element={<SinglePost />} />
           </Route>
-          {/* Search */}
-          <Route path="search" element={<Search />}>
-            <Route index element={<Navigate to="all" replace />} />
-            <Route path="all" element={<SearchAll />} />
-            <Route path="posts" element={<SearchPosts />} />
-            <Route path="profiles" element={<SearchProfiles />} />
-            <Route path="hashtags" element={<SearchHashtags />} />
-          </Route>
-          {/* Profile */}
-          <Route path="profile/:nickname" element={<Profile />} />
-          <Route path="profile/edit" element={<ProfileEdit />} />
-          {/* Post */}
-          <Route path="post/:id" element={<SinglePost />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />

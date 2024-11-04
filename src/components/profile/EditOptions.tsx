@@ -6,7 +6,7 @@ export default function EditOptions() {
     <section className="relative min-h-screen border-x-[1px] border-tertiary-500">
       <div className="p-5">
         <div className="mb-5">
-          <Alert message={"Changes successfully saved!"} />
+          <Alert message={"Changes successfully saved!"} type="success" />
         </div>
         <p className="text-pretty text-sm font-normal text-tertiary-200 lg:text-base">
           Customize what people see on your public profile and next to your

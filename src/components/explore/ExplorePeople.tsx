@@ -5,7 +5,10 @@ export default function ExplorePeople() {
   return (
     <section className="relative border-x-[1px] border-tertiary-500">
       <div className="p-5">
-        <Alert message="Remember to be respectful with other people" />
+        <Alert
+          message="Remember to be respectful with other people"
+          type="success"
+        />
       </div>
       <section>
         <article className="border-y border-tertiary-500 p-5">
