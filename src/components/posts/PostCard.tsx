@@ -3,50 +3,54 @@ import Badge from "../ui/Badge";
 import UserProfile from "../userPanel/UserProfile";
 import PostFooter from "./PostFooter";
 import MainPostFooter from "./MainPostFooter";
+import { PostsResponse } from "../../lib/types";
 
 interface PostCardProps {
-  image?: boolean;
-  isMainPost?: boolean;
+  post: PostsResponse;
+  isMainPost: boolean;
+  isUserLoggedPost: boolean;
 }
 
 export default function PostCard({
-  image = false,
-  isMainPost = false,
+  post,
+  isMainPost,
+  isUserLoggedPost,
 }: PostCardProps) {
-  const id = Math.floor(Math.random() * 100);
   return (
     <>
       <article className="border-b border-tertiary-500">
         <section className="flex flex-col gap-5 p-5">
-          <UserProfile isUserPanel={false} isMainUser={false} />
-          <Link to={`/post/${id}`}>
-            <p className="text-pretty text-sm font-normal text-tertiary-50 lg:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              faucibus vestibulum mi vel ullamcorper. Nulla facilisi. Vestibulum
-              eros ante, tincidunt ac tempor in, molestie ac sem. Curabitur
-              pharetra lacus et dui pharetra, id sollicitudin urna maximus.
-              Etiam nunc turpis, egestas venenatis lectus non, venenatis
-              fringilla felis. Etiam et rhoncus sapien. Sed eu dictum justo, non
-              porttitor orci. Duis sit amet tincidunt tellus. Cras tempus nibh
-              eget ligula interdum lacinia.
+          <UserProfile
+            isUserPanel={false}
+            isMainUser={isUserLoggedPost}
+            nickname={post.author.name}
+            avatar={post.author.avatar}
+          />
+          <Link to={`/post/${post.id}`}>
+            <p className="text-pretty break-words text-sm font-normal text-tertiary-50 lg:text-base">
+              {post.body}
             </p>
           </Link>
 
-          {image && (
+          {post.media.url && (
             <img
-              src={"/placeholder_horizontal.jpg"}
+              src={post.media.url}
               alt="placeholder"
               className="w-full rounded-lg object-cover object-center"
             />
           )}
 
-          <div className="flex gap-2.5">
-            <Badge text="react" />
-            <Badge text="react" />
-            <Badge text="react" />
-          </div>
+          {post.tags[0] !== "" && (
+            <div className="flex gap-2.5">
+              {post.tags.map(
+                (tag) => tag !== "" && <Badge text={tag} key={tag} />,
+              )}
+            </div>
+          )}
 
-          {!isMainPost && <PostFooter />}
+          {!isMainPost && (
+            <PostFooter count={post._count} created={post.created} />
+          )}
         </section>
         {isMainPost && <MainPostFooter />}
       </article>

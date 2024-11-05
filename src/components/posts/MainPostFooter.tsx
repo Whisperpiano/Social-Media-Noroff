@@ -1,6 +1,6 @@
 import { PiGlobeHemisphereEastFill } from "react-icons/pi";
-import ReplyBtn from "../ui/ReplyBtn";
-import LikeBtn from "../ui/LikeBtn";
+// import ReplyBtn from "../ui/ReplyBtn";
+// import LikeBtn from "../ui/LikeBtn";
 
 export default function MainPostFooter() {
   return (
@@ -10,8 +10,8 @@ export default function MainPostFooter() {
         <span className="text-xs text-tertiary-200/75">(edited)</span>
       </time>
       <div className="flex items-center gap-5">
-        <ReplyBtn />
-        <LikeBtn />
+        {/* <ReplyBtn />
+        <LikeBtn /> */}
       </div>
     </div>
   );

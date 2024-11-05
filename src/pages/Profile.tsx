@@ -1,4 +1,4 @@
-import PostCard from "../components/posts/PostCard";
+// import PostCard from "../components/posts/PostCard";
 import Header from "../components/ui/Header";
 import ProfileBanner from "../components/profile/ProfileBanner";
 import ProfileHeader from "../components/profile/ProfileHeader";
@@ -18,9 +18,9 @@ export default function Profile() {
               <p>Latest post</p>
             </div>
             <div>
-              <PostCard />
+              {/* <PostCard />
               <PostCard image={true} />
-              <PostCard />
+              <PostCard /> */}
             </div>
           </section>
         </div>
