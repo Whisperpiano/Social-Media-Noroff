@@ -2,15 +2,23 @@ import LikeBtn from "../ui/LikeBtn";
 import ReplyBtn from "../ui/ReplyBtn";
 import Timestamp from "../ui/Timestamp";
 
-export default function PostFooter() {
+interface PostFooterProps {
+  count: {
+    comments: number;
+    reactions: number;
+  };
+  created: Date;
+}
+
+export default function PostFooter({ count, created }: PostFooterProps) {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-5">
-        <ReplyBtn />
-        <LikeBtn />
+        <ReplyBtn comments={count.comments} />
+        <LikeBtn likes={count.reactions} />
       </div>
       <div>
-        <Timestamp time="2 min" />
+        <Timestamp created={created} />
       </div>
     </div>
   );
