@@ -38,11 +38,13 @@ export default function AppLayout() {
   }, [accessToken, loggedUser]);
 
   return (
-    <main className="relative flex min-h-screen flex-wrap justify-center bg-tertiary-900 font-sans text-tertiary-50">
+    <main className="relative flex min-h-screen flex-col bg-tertiary-900 font-sans text-tertiary-50">
       <MobileHeader userProfile={userLoggedProfile} />
-      <Navigation />
-      <Outlet />
-      <UserPanel userProfile={userLoggedProfile} />
+      <div className="sm:flex sm:flex-row xl:min-h-screen xl:justify-center">
+        <Navigation />
+        <Outlet />
+        <UserPanel userProfile={userLoggedProfile} />
+      </div>
     </main>
   );
 }
