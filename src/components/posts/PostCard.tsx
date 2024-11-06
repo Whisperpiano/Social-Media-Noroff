@@ -9,12 +9,16 @@ interface PostCardProps {
   post: PostsResponse;
   isMainPost: boolean;
   isUserLoggedPost: boolean;
+  toggleFollowing: (nickname: string) => void;
+  isFollowing: boolean;
 }
 
 export default function PostCard({
   post,
   isMainPost,
   isUserLoggedPost,
+  toggleFollowing,
+  isFollowing,
 }: PostCardProps) {
   return (
     <>
@@ -25,6 +29,8 @@ export default function PostCard({
             isMainUser={isUserLoggedPost}
             nickname={post.author.name}
             avatar={post.author.avatar}
+            toggleFollowing={toggleFollowing}
+            isFollowing={isFollowing}
           />
           <Link to={`/post/${post.id}`}>
             <p className="text-pretty break-words text-sm font-normal text-tertiary-50 lg:text-base">
@@ -32,7 +38,7 @@ export default function PostCard({
             </p>
           </Link>
 
-          {post.media.url && (
+          {post.media?.url && (
             <img
               src={post.media.url}
               alt="placeholder"
