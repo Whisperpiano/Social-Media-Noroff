@@ -33,7 +33,7 @@ export default function PostCard({
             isFollowing={isFollowing}
           />
           <Link to={`/post/${post.id}`}>
-            <p className="text-pretty break-words text-sm font-normal text-tertiary-50 lg:text-base">
+            <p className="overflow-wrap-anywhere text-sm font-normal text-tertiary-50 lg:text-base">
               {post.body}
             </p>
           </Link>
