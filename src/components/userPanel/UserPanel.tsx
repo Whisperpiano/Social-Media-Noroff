@@ -9,6 +9,9 @@ interface UserPanelProps {
 }
 
 export default function UserPanel({ userProfile }: UserPanelProps) {
+  function handleProfile() {
+    console.log("profile");
+  }
   return (
     <aside className="relative mr-2.5 hidden w-full max-w-[300px] xl:block">
       <div className="sticky top-5 ml-5 flex flex-col gap-5">
@@ -18,6 +21,8 @@ export default function UserPanel({ userProfile }: UserPanelProps) {
           isMainUser={true}
           nickname={userProfile?.name || ""}
           avatar={userProfile?.avatar}
+          toggleFollowing={handleProfile}
+          isFollowing={false}
         />
         <PostEditor />
       </div>

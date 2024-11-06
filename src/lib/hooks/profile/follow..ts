@@ -1,15 +1,9 @@
-type Action = "follow" | "unfollow";
-
 const API_URL = "https://v2.api.noroff.dev/social/profiles";
 
-export async function useToggleFollow(
-  nickname: string,
-  action: Action,
-  accessToken: string,
-) {
+export async function follow(nickname: string, accessToken: string) {
   try {
-    const response = await fetch(`${API_URL}/${nickname}/${action}`, {
-      method: "POST",
+    const response = await fetch(`${API_URL}/${nickname}/follow`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         "X-Noroff-API-Key": "b58ae560-67eb-499f-b95c-97188b151f34",
