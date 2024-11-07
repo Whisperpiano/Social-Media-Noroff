@@ -1,4 +1,4 @@
-import { PiInfoFill, PiXBold } from "react-icons/pi";
+import { PiInfoFill } from "react-icons/pi";
 
 interface AlertProps {
   message: string;
@@ -12,14 +12,14 @@ export default function Alert({ message, type }: AlertProps) {
     warning: "border-alert-900 bg-alert-500/25 text-alert-100",
   };
 
-  const iconStyles = {
-    error:
-      "text-error-100 border-error-800 bg-error-500/25  hover:bg-error-900 focus:bg-error-900",
-    success:
-      "border-primary-500 bg-[#0A2927] text-primary-100 hover:bg-primary-900 focus:bg-primary-900",
-    warning:
-      "text-alert-100 border-alert-800 bg-alert-500/25 hover:bg-alert-900 focus:bg-alert-900",
-  };
+  // const iconStyles = {
+  //   error:
+  //     "text-error-100 border-error-800 bg-error-500/25  hover:bg-error-900 focus:bg-error-900",
+  //   success:
+  //     "border-primary-500 bg-[#0A2927] text-primary-100 hover:bg-primary-900 focus:bg-primary-900",
+  //   warning:
+  //     "text-alert-100 border-alert-800 bg-alert-500/25 hover:bg-alert-900 focus:bg-alert-900",
+  // };
 
   return (
     <div
@@ -31,7 +31,7 @@ export default function Alert({ message, type }: AlertProps) {
       <span className="sr-only">Alert info</span>
       <div className="ms-2.5">{message}</div>
 
-      {type === "success" && (
+      {/* {type === "success" && (
         <button
           type="button"
           className={`-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-full border p-1.5 ${iconStyles[type]}`}
@@ -41,7 +41,7 @@ export default function Alert({ message, type }: AlertProps) {
           <PiXBold size={16} />
           <span className="sr-only">Close</span>
         </button>
-      )}
+      )} */}
     </div>
   );
 }

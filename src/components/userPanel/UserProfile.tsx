@@ -31,7 +31,7 @@ export default function UserProfile({
           <div className="relative max-w-12">
             <Avatar
               src={avatar?.url || `/avatar_placeholder.jpg`}
-              alt="Avatar placeholder"
+              alt={avatar?.alt || "User avatar"}
               indicator={isUserPanel}
             />
           </div>
