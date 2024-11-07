@@ -4,6 +4,7 @@ import UserProfile from "../userPanel/UserProfile";
 import PostFooter from "./PostFooter";
 import MainPostFooter from "./MainPostFooter";
 import { PostsResponse } from "../../lib/types";
+import useLoggedUser from "../../lib/utils/useLoggedUser";
 
 interface PostCardProps {
   post: PostsResponse;
@@ -21,6 +22,13 @@ export default function PostCard({
   isFollowing,
 }: PostCardProps) {
   const location = useLocation();
+  const { loggedUser } = useLoggedUser();
+
+  const loggedUserLiked =
+    post.reactions?.[0]?.reactors?.includes(loggedUser) || false;
+
+  console.log(post);
+
   return (
     <>
       <article className="border-b border-tertiary-500">
@@ -64,7 +72,13 @@ export default function PostCard({
           )}
 
           {!isMainPost && (
-            <PostFooter count={post._count} created={post.created} />
+            <PostFooter
+              count={post._count}
+              created={post.created}
+              id={post.id}
+              userLiked={loggedUserLiked}
+              isUserLoggedPost={isUserLoggedPost}
+            />
           )}
         </section>
         {isMainPost && (
@@ -72,6 +86,9 @@ export default function PostCard({
             count={post._count}
             created={post.created}
             updated={post.updated}
+            id={post.id}
+            userLiked={loggedUserLiked}
+            isUserLoggedPost={isUserLoggedPost}
           />
         )}
       </article>
