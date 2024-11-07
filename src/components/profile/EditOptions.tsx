@@ -7,7 +7,7 @@ import updateProfile from "../../lib/hooks/profile/useUpdateProfile";
 import useLoggedUser from "../../lib/utils/useLoggedUser";
 
 export default function EditOptions() {
-  const { userLoggedProfile } = useMainProfile();
+  const { userLoggedProfile, refreshProfile } = useMainProfile();
   const { accessToken } = useLoggedUser();
   const [bio, setBio] = useState("");
   const [avatar, setAvatar] = useState<File | null>(null);
@@ -84,6 +84,7 @@ export default function EditOptions() {
         },
       });
       setUpdateSuccess(true);
+      refreshProfile();
     } catch (error) {
       console.error("Error updating profile:", error);
       setUpdateError(true);

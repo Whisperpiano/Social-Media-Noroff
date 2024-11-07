@@ -35,32 +35,38 @@ export default function useMainProfile() {
     }
   };
 
-  useEffect(() => {
+  const fetchUserProfile = async () => {
     if (!loggedUser) return;
-    async function fetchUserProfile() {
-      try {
-        const response = await fetch(
-          `${API_URL}/${loggedUser}?_following=true&_followers=true&_posts=true`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "X-Noroff-API-Key": "b58ae560-67eb-499f-b95c-97188b151f34",
-              Authorization: `Bearer ${accessToken}`,
-            },
+    try {
+      const response = await fetch(
+        `${API_URL}/${loggedUser}?_following=true&_followers=true&_posts=true`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Noroff-API-Key": "b58ae560-67eb-499f-b95c-97188b151f34",
+            Authorization: `Bearer ${accessToken}`,
           },
-        );
-        const { data } = await response.json();
-        setUserLoggedProfile(data);
-        data.following.map((following: FollowingUser) =>
-          setIsFollowingList((prev) => [...prev, following.name]),
-        );
-      } catch (error) {
-        console.log(error);
-      }
+        },
+      );
+      const { data } = await response.json();
+      setUserLoggedProfile(data);
+      setIsFollowingList(
+        data.following.map((following: FollowingUser) => following.name),
+      );
+    } catch (error) {
+      console.log(error);
     }
+  };
+
+  useEffect(() => {
     fetchUserProfile();
   }, [accessToken, loggedUser]);
 
-  return { userLoggedProfile, isFollowingList, toggleFollowing };
+  return {
+    userLoggedProfile,
+    isFollowingList,
+    toggleFollowing,
+    refreshProfile: fetchUserProfile,
+  };
 }
