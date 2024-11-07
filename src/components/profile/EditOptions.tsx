@@ -5,7 +5,6 @@ import Divider from "../ui/Divider";
 import { useUploadImage } from "../../lib/hooks/media/useUploadImage";
 import updateProfile from "../../lib/hooks/profile/useUpdateProfile";
 import useLoggedUser from "../../lib/utils/useLoggedUser";
-import { useLocation, useNavigate } from "react-router-dom";
 
 export default function EditOptions() {
   const { userLoggedProfile } = useMainProfile();
@@ -15,10 +14,6 @@ export default function EditOptions() {
   const [banner, setBanner] = useState<File | null>(null);
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [updateError, setUpdateError] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const reloadPage = () => navigate(location.pathname, { replace: true });
 
   const {
     imageLink: avatarLink,
@@ -88,7 +83,7 @@ export default function EditOptions() {
           alt: `Banner of ${userLoggedProfile.name}`,
         },
       });
-      reloadPage();
+      window.location.reload();
       setUpdateSuccess(true);
     } catch (error) {
       console.error("Error updating profile:", error);
