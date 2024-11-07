@@ -15,6 +15,11 @@ export default function SearchBar() {
     e.preventDefault();
     const searchParams = new URLSearchParams({ query: search });
     navigate(`/search/all?${searchParams.toString()}`);
+    resetSearch();
+    const activeElement = document.activeElement;
+    if (activeElement instanceof HTMLElement) {
+      activeElement.blur();
+    }
   }
 
   function resetSearch() {

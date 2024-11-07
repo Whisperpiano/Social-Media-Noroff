@@ -2,10 +2,12 @@ import { useEffect, useRef, Dispatch, SetStateAction } from "react";
 
 export default function useInfiniteScroll(
   callback: Dispatch<SetStateAction<number>>,
+  isLast: boolean,
 ): React.MutableRefObject<boolean> {
   const isScrolling = useRef<boolean>(false);
 
   useEffect(() => {
+    if (isLast) return;
     const handleScroll = () => {
       if (isScrolling.current) return;
 
@@ -24,7 +26,7 @@ export default function useInfiniteScroll(
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [callback]);
+  }, [callback, isLast]);
 
   return isScrolling;
 }

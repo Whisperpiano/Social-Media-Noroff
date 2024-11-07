@@ -3,12 +3,13 @@ import { UserProfileResponse } from "../../types";
 import useLoggedUser from "../../utils/useLoggedUser";
 
 const API_URL_PROFILES = "https://v2.api.noroff.dev/social/profiles";
-const LIMIT = 30;
+const LIMIT = 25;
 
 export default function useReadAllProfiles() {
   const [people, setPeople] = useState<UserProfileResponse[]>([]);
   const [fetchError, setFetchError] = useState("");
   const [page, setPage] = useState(1);
+  const [isLast, setIsLast] = useState<boolean>();
   const { accessToken } = useLoggedUser();
 
   useEffect(() => {
@@ -31,7 +32,8 @@ export default function useReadAllProfiles() {
           const error = await response.json();
           throw new Error(error.errors[0].message);
         }
-        const { data } = await response.json();
+        const { data, meta } = await response.json();
+        setIsLast(meta.isLastPage);
         setPeople((prev) => [
           ...prev,
           ...data.filter(
@@ -50,5 +52,5 @@ export default function useReadAllProfiles() {
     fetchPosts();
   }, [accessToken, page]);
 
-  return { people, fetchError, setPage, page };
+  return { people, fetchError, setPage, page, isLast };
 }

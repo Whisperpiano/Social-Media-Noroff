@@ -10,6 +10,7 @@ export default function useReadAllPosts() {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchError, setFetchError] = useState("");
   const [page, setPage] = useState(1);
+  const [isLast, setIsLast] = useState<boolean>();
   const { accessToken } = useLoggedUser();
 
   useEffect(() => {
@@ -33,7 +34,8 @@ export default function useReadAllPosts() {
           const error = await response.json();
           throw new Error(error.errors[0].message);
         }
-        const { data } = await response.json();
+        const { data, meta } = await response.json();
+        setIsLast(meta.isLastPage);
         setPosts((prev) => [...prev, ...data]);
       } catch (error) {
         setFetchError(
@@ -48,5 +50,5 @@ export default function useReadAllPosts() {
     fetchPosts();
   }, [accessToken, page]);
 
-  return { posts, isLoading, fetchError, setPage, page };
+  return { posts, isLoading, fetchError, setPage, page, isLast };
 }

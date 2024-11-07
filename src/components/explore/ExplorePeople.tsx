@@ -5,13 +5,11 @@ import UserProfile from "../userPanel/UserProfile";
 import useMainProfile from "../../lib/hooks/profile/useMainProfile";
 import useInfiniteScroll from "../../lib/hooks/utils/useInfiniteScroll";
 
-// import UserProfile from "../userPanel/UserProfile";
-
 export default function ExplorePeople() {
-  const { people, setPage } = useReadAllProfiles();
+  const { people, setPage, isLast } = useReadAllProfiles();
   const { isFollowingList, toggleFollowing } = useMainProfile();
 
-  useInfiniteScroll(setPage);
+  useInfiniteScroll(setPage, isLast || false);
 
   return (
     <section className="relative border-x-[1px] border-tertiary-500">
