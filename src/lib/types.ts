@@ -40,6 +40,7 @@ export type Media = {
 type Reaction = {
   symbol: string;
   count: number;
+  reactors: string[];
 };
 
 export interface UserProfileResponse {
