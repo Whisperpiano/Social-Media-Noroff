@@ -126,6 +126,11 @@ export default function EditOptions() {
             onChange={handleChangeAvatar}
             disabled={isAvatarUploading}
           />
+          {isAvatarUploadSuccessful && (
+            <p className="pt-5 text-sm text-success-500">
+              Avatar successfully uploaded!
+            </p>
+          )}
           {avatarError && (
             <p className="pt-5 text-sm text-error-500">
               {avatarError}, please try again.
@@ -152,6 +157,11 @@ export default function EditOptions() {
             onChange={handleChangeBanner}
             disabled={isBannerUploading}
           />
+          {isBannerUploadSuccessful && (
+            <p className="pt-5 text-sm text-success-500">
+              Banner successfully uploaded!
+            </p>
+          )}
           {bannerError && (
             <p className="pt-5 text-sm text-error-500">
               {avatarError}, please try again.
