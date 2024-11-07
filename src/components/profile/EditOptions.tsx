@@ -3,12 +3,17 @@ import useMainProfile from "../../lib/hooks/profile/useMainProfile";
 import Alert from "../ui/Alert";
 import Divider from "../ui/Divider";
 import { useUploadImage } from "../../lib/hooks/media/useUploadImage";
+import updateProfile from "../../lib/hooks/profile/useUpdateProfile";
+import useLoggedUser from "../../lib/utils/useLoggedUser";
 
 export default function EditOptions() {
   const { userLoggedProfile } = useMainProfile();
+  const { accessToken } = useLoggedUser();
   const [bio, setBio] = useState("");
   const [avatar, setAvatar] = useState<File | null>(null);
   const [banner, setBanner] = useState<File | null>(null);
+  const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [updateError, setUpdateError] = useState(false);
 
   const {
     imageLink: avatarLink,
@@ -60,21 +65,45 @@ export default function EditOptions() {
     setBanner(file);
   }
 
-  function onSubmitForm(e: React.FormEvent) {
+  async function onSubmitForm(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Bio:", bio);
-    console.log("Avatar link:", avatarLink);
-    console.log("Banner link:", bannerLink);
+    if (isAvatarUploading || isBannerUploading) return;
+    try {
+      setUpdateError(false);
+      setUpdateSuccess(false);
+      if (!userLoggedProfile || !accessToken) return;
+      await updateProfile(userLoggedProfile, accessToken, {
+        bio,
+        avatar: {
+          url: avatarLink || userLoggedProfile.avatar.url,
+          alt: `Avatar of ${userLoggedProfile.name}`,
+        },
+        banner: {
+          url: bannerLink || userLoggedProfile.banner.url,
+          alt: `Banner of ${userLoggedProfile.name}`,
+        },
+      });
+      setUpdateSuccess(true);
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      setUpdateError(true);
+    }
   }
-
-  console.log(isAvatarUploadSuccessful);
 
   return (
     <section className="relative min-h-screen border-x-[1px] border-tertiary-500">
       <div className="p-5">
-        <div className="mb-5">
-          <Alert message={"Changes successfully saved!"} type="success" />
-        </div>
+        {updateSuccess && (
+          <div className="mb-5">
+            <Alert message={"Changes successfully saved!"} type="success" />
+          </div>
+        )}
+        {updateError && (
+          <div className="mb-5">
+            <Alert message={"Ops! Something went wrong"} type="error" />
+          </div>
+        )}
+
         <p className="text-pretty text-sm font-normal text-tertiary-200 lg:text-base">
           Customize what people see on your public profile and next to your
           posts. Other people are more likely to follow you back and interact
