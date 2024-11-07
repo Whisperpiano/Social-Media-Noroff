@@ -7,6 +7,7 @@ const LIMIT = 25;
 export function useSearchProfiles(query: string, accessToken: string) {
   const [profiles, setProfiles] = useState<UserProfileResponse[]>([]);
   const [page, setPage] = useState(1);
+  const [isLast, setIsLast] = useState<boolean>();
 
   useEffect(() => {
     if (!query || !accessToken) return;
@@ -26,11 +27,12 @@ export function useSearchProfiles(query: string, accessToken: string) {
         const error = await response.json();
         throw new Error(error.errors[0].message);
       }
-      const { data } = await response.json();
+      const { data, meta } = await response.json();
+      setIsLast(meta.isLastPage);
       setProfiles(data);
     }
     fetchProfiles();
   }, [accessToken, query, page]);
 
-  return { profiles, setPage };
+  return { profiles, setPage, isLast };
 }

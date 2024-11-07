@@ -1,5 +1,3 @@
-// import UserProfile from "../userPanel/UserProfile";
-import { useLocation } from "react-router-dom";
 import { useSearchProfiles } from "../../lib/hooks/search/useSearchProfiles";
 import useLoggedUser from "../../lib/utils/useLoggedUser";
 import Hashtag from "../ui/Hashtag";
@@ -8,13 +6,10 @@ import UserProfile from "../userPanel/UserProfile";
 import { useSearchPosts } from "../../lib/hooks/search/useSearchPosts";
 import PostCard from "../posts/PostCard";
 import useInfiniteScroll from "../../lib/hooks/utils/useInfiniteScroll";
-
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+import useQuery from "../../lib/hooks/utils/useQuery";
 
 export default function SearchAll() {
-  const { accessToken } = useLoggedUser();
+  const { accessToken, loggedUser } = useLoggedUser();
   const { isFollowingList, toggleFollowing } = useMainProfile();
   const query = useQuery().get("query") || "";
   const { profiles } = useSearchProfiles(query, accessToken);
@@ -50,7 +45,7 @@ export default function SearchAll() {
             >
               <UserProfile
                 isUserPanel={false}
-                isMainUser={false}
+                isMainUser={profile.name === loggedUser}
                 nickname={profile.name}
                 avatar={profile.avatar}
                 toggleFollowing={toggleFollowing}
@@ -83,16 +78,19 @@ export default function SearchAll() {
             </p>
           </div>
         ) : (
-          posts.map((post) => (
-            <PostCard
-              key={post.id}
-              post={post}
-              isMainPost={false}
-              isUserLoggedPost={false}
-              toggleFollowing={toggleFollowing}
-              isFollowing={isFollowingList.includes(post.author.name)}
-            />
-          ))
+          posts.map((post) => {
+            const isUserLoggedPost = post.author.name === loggedUser;
+            return (
+              <PostCard
+                key={post.id}
+                post={post}
+                isMainPost={false}
+                isUserLoggedPost={isUserLoggedPost}
+                toggleFollowing={toggleFollowing}
+                isFollowing={isFollowingList.includes(post.author.name)}
+              />
+            );
+          })
         )}
       </div>
     </section>
