@@ -44,6 +44,10 @@ export default function PostEditor() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (text.length >= 250) {
+      alert("Your post is too long, please limit it to 250 characters");
+      return;
+    }
     if (!accessToken || isUploading) return;
     try {
       const title = `${loggedUser}'s post`;
@@ -66,6 +70,8 @@ export default function PostEditor() {
           },
         });
         navigate(`/post/${data.id}`);
+        setText("");
+        setImage(null);
       }
     } catch (error) {
       console.log(error);
@@ -156,7 +162,18 @@ export default function PostEditor() {
             </button>
           </div>
           <div className="flex items-center gap-2.5">
-            <span className="text-sm text-tertiary-200/75">250</span>
+            <span
+              className={`text-sm ${
+                text.length >= 250
+                  ? "text-error-500"
+                  : text.length >= 200
+                    ? "text-alert-300"
+                    : "text-tertiary-200/75"
+              }`}
+            >
+              {250 - text.length}
+            </span>
+
             <button
               type="submit"
               className="btn-primary text-sm disabled:cursor-not-allowed disabled:opacity-50"
