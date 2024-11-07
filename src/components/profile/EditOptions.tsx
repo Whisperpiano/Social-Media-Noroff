@@ -83,8 +83,11 @@ export default function EditOptions() {
           alt: `Banner of ${userLoggedProfile.name}`,
         },
       });
-      window.location.reload();
+      // TODO: Add a better way to do this
       setUpdateSuccess(true);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     } catch (error) {
       console.error("Error updating profile:", error);
       setUpdateError(true);
