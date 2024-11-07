@@ -37,7 +37,7 @@ export default function SearchTabs() {
       <NavLink
         to={`/search/hashtags${searchQuery}`}
         className={({ isActive }) =>
-          `relative flex-1 ${isActive ? activeStyles : "text-tertiary-200 transition-colors duration-300 hover:text-tertiary-50"}`
+          `relative flex-1 ${isActive ? activeStyles : "pointer-events-none cursor-none text-tertiary-200 opacity-75 transition-colors duration-300 hover:text-tertiary-50"}`
         }
       >
         Hashtags

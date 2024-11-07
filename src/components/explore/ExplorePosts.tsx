@@ -4,10 +4,10 @@ import PostCard from "../posts/PostCard";
 import useInfiniteScroll from "../../lib/hooks/utils/useInfiniteScroll";
 
 export default function ExplorePosts() {
-  const { posts, setPage, page } = useReadAllPosts();
+  const { posts, setPage, page, isLast } = useReadAllPosts();
   const { isFollowingList, toggleFollowing } = useMainProfile();
 
-  useInfiniteScroll(setPage);
+  useInfiniteScroll(setPage, isLast || false);
 
   return (
     <section className="relative border-x-[1px] border-tertiary-500">
