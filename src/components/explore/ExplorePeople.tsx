@@ -34,6 +34,7 @@ export default function ExplorePeople() {
               avatar={person.avatar}
               toggleFollowing={toggleFollowing}
               isFollowing={isFollowingList.includes(person.name)}
+              isComment={false}
             />
           </article>
         ))}

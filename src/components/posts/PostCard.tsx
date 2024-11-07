@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Badge from "../ui/Badge";
 import UserProfile from "../userPanel/UserProfile";
 import PostFooter from "./PostFooter";
@@ -20,6 +20,7 @@ export default function PostCard({
   toggleFollowing,
   isFollowing,
 }: PostCardProps) {
+  const location = useLocation();
   return (
     <>
       <article className="border-b border-tertiary-500">
@@ -31,12 +32,20 @@ export default function PostCard({
             avatar={post.author.avatar}
             toggleFollowing={toggleFollowing}
             isFollowing={isFollowing}
+            isComment={false}
           />
-          <Link to={`/post/${post.id}`}>
+
+          {location.pathname !== `/post/${post.id}` ? (
+            <Link to={`/post/${post.id}`}>
+              <p className="overflow-wrap-anywhere text-sm font-normal text-tertiary-50 lg:text-base">
+                {post.body}
+              </p>
+            </Link>
+          ) : (
             <p className="overflow-wrap-anywhere text-sm font-normal text-tertiary-50 lg:text-base">
               {post.body}
             </p>
-          </Link>
+          )}
 
           {post.media?.url && (
             <img
@@ -58,7 +67,13 @@ export default function PostCard({
             <PostFooter count={post._count} created={post.created} />
           )}
         </section>
-        {isMainPost && <MainPostFooter />}
+        {isMainPost && (
+          <MainPostFooter
+            count={post._count}
+            created={post.created}
+            updated={post.updated}
+          />
+        )}
       </article>
     </>
   );
