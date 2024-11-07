@@ -14,11 +14,13 @@ export default function EditOptions() {
     imageLink: avatarLink,
     fetchError: avatarError,
     isUploading: isAvatarUploading,
+    isUploadSuccessful: isAvatarUploadSuccessful,
   } = useUploadImage(avatar);
   const {
     imageLink: bannerLink,
     fetchError: bannerError,
     isUploading: isBannerUploading,
+    isUploadSuccessful: isBannerUploadSuccessful,
   } = useUploadImage(banner);
 
   useEffect(() => {
@@ -32,11 +34,29 @@ export default function EditOptions() {
 
   function handleChangeAvatar(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0] || null;
+    if (!file) return;
+    const validTypes = ["image/jpeg", "image/png"];
+    if (!validTypes.includes(file?.type)) {
+      alert(
+        "Please upload a valid image file, only jpeg and png are supported",
+      );
+      e.target.value = "";
+      return;
+    }
     setAvatar(file);
   }
 
   function handleChangeBanner(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0] || null;
+    if (!file) return;
+    const validTypes = ["image/jpeg", "image/png"];
+    if (!validTypes.includes(file?.type)) {
+      alert(
+        "Please upload a valid image file, only jpeg and png are supported",
+      );
+      e.target.value = "";
+      return;
+    }
     setBanner(file);
   }
 
@@ -46,6 +66,8 @@ export default function EditOptions() {
     console.log("Avatar link:", avatarLink);
     console.log("Banner link:", bannerLink);
   }
+
+  console.log(isAvatarUploadSuccessful);
 
   return (
     <section className="relative min-h-screen border-x-[1px] border-tertiary-500">
@@ -99,12 +121,16 @@ export default function EditOptions() {
             type="file"
             name="avatar"
             id="avatar"
-            className="mt-5 block w-full rounded-lg text-xs transition-colors duration-300 file:me-2.5 file:border-0 file:bg-transparent file:px-5 file:py-2.5 file:transition-colors file:duration-300 hover:text-tertiary-100 focus:z-10 focus:border-tertiary-200/50 focus:ring-tertiary-200/50 disabled:pointer-events-none disabled:opacity-50 lg:text-sm dark:bg-transparent dark:text-tertiary-200 dark:file:rounded-lg dark:file:bg-tertiary-500 dark:file:text-tertiary-100 dark:file:hover:bg-primary-500 dark:file:hover:text-white"
+            className={`mt-5 block w-full rounded-lg text-xs transition-colors duration-300 file:me-2.5 file:border-0 file:bg-transparent file:px-5 file:py-2.5 file:transition-colors file:duration-300 hover:text-tertiary-100 focus:z-10 focus:border-tertiary-200/50 focus:ring-tertiary-200/50 disabled:pointer-events-none disabled:opacity-50 lg:text-sm dark:bg-transparent dark:text-tertiary-200 dark:file:rounded-lg dark:file:bg-tertiary-500 dark:file:text-tertiary-100 dark:file:hover:bg-primary-500 dark:file:hover:text-white ${isAvatarUploadSuccessful === undefined ? "" : isAvatarUploadSuccessful ? "dark:text-success-500 dark:hover:text-success-500" : "dark:text-error-500 dark:hover:text-error-500"}`}
+            accept="image/jpeg, image/png"
             onChange={handleChangeAvatar}
+            disabled={isAvatarUploading}
           />
-          {isAvatarUploading && <p>Uploading avatar...</p>}
-          {avatarLink && <img src={avatarLink} alt="Avatar preview" />}
-          {avatarError && <p className="text-red-500">{avatarError}</p>}
+          {avatarError && (
+            <p className="pt-5 text-sm text-error-500">
+              {avatarError}, please try again.
+            </p>
+          )}
         </div>
         <Divider />
         <div className="p-5">
@@ -121,12 +147,16 @@ export default function EditOptions() {
             type="file"
             name="banner"
             id="banner"
-            className="mt-5 block w-full rounded-lg text-xs transition-colors duration-300 file:me-2.5 file:border-0 file:bg-transparent file:px-5 file:py-2.5 file:transition-colors file:duration-300 hover:text-tertiary-100 focus:z-10 focus:border-tertiary-200/50 focus:ring-tertiary-200/50 disabled:pointer-events-none disabled:opacity-50 lg:text-sm dark:bg-transparent dark:text-tertiary-200 dark:file:rounded-lg dark:file:bg-tertiary-500 dark:file:text-tertiary-100 dark:file:hover:bg-primary-500 dark:file:hover:text-white"
+            className={`mt-5 block w-full rounded-lg text-xs transition-colors duration-300 file:me-2.5 file:border-0 file:bg-transparent file:px-5 file:py-2.5 file:transition-colors file:duration-300 hover:text-tertiary-100 focus:z-10 focus:border-tertiary-200/50 focus:ring-tertiary-200/50 disabled:pointer-events-none disabled:opacity-50 lg:text-sm dark:bg-transparent dark:text-tertiary-200 dark:file:rounded-lg dark:file:bg-tertiary-500 dark:file:text-tertiary-100 dark:file:hover:bg-primary-500 dark:file:hover:text-white ${isBannerUploadSuccessful === undefined ? "" : isBannerUploadSuccessful ? "dark:text-success-500 dark:hover:text-success-500" : "dark:text-error-500 dark:hover:text-error-500"}`}
+            accept="image/jpeg, image/png"
             onChange={handleChangeBanner}
+            disabled={isBannerUploading}
           />
-          {isBannerUploading && <p>Uploading banner...</p>}
-          {bannerLink && <img src={bannerLink} alt="Banner preview" />}
-          {bannerError && <p className="text-red-500">{bannerError}</p>}
+          {bannerError && (
+            <p className="pt-5 text-sm text-error-500">
+              {avatarError}, please try again.
+            </p>
+          )}
         </div>
 
         <div className="mb-20 p-5 sm:mb-0">

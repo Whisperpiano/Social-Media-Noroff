@@ -6,11 +6,14 @@ export function useUploadImage(image: File | null) {
   const [imageLink, setImageLink] = useState<string | null>(null);
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [isUploadSuccessful, setIsUploadSuccessful] = useState<boolean>();
 
   useEffect(() => {
     async function uploadImage() {
       if (!image) return;
       setIsUploading(true);
+      setIsUploadSuccessful(false);
+
       try {
         const formData = new FormData();
         formData.append("image", image);
@@ -30,10 +33,12 @@ export function useUploadImage(image: File | null) {
         const data = await response.json();
         setImageLink(data.data.link);
         setFetchError(null);
+        setIsUploadSuccessful(true);
       } catch (error) {
         console.error(error);
         setFetchError("Error uploading image");
         setImageLink(null);
+        setIsUploadSuccessful(false);
       } finally {
         setIsUploading(false);
       }
@@ -42,5 +47,5 @@ export function useUploadImage(image: File | null) {
     uploadImage();
   }, [image]);
 
-  return { imageLink, fetchError, isUploading };
+  return { imageLink, fetchError, isUploading, isUploadSuccessful };
 }
