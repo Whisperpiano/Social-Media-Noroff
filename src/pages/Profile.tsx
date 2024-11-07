@@ -89,19 +89,27 @@ export default function Profile() {
                   <p>Latest post</p>
                 </div>
                 <div>
-                  {posts.map((post) => {
-                    const isUserLoggedPost = post.author.name === loggedUser;
-                    return (
-                      <PostCard
-                        key={post.id}
-                        post={post}
-                        isMainPost={false}
-                        isUserLoggedPost={isUserLoggedPost}
-                        toggleFollowing={toggleFollowing}
-                        isFollowing={isFollowingList.includes(post.author.name)}
-                      />
-                    );
-                  })}
+                  {posts.length > 0 ? (
+                    posts.map((post) => {
+                      const isUserLoggedPost = post.author.name === loggedUser;
+                      return (
+                        <PostCard
+                          key={post.id}
+                          post={post}
+                          isMainPost={false}
+                          isUserLoggedPost={isUserLoggedPost}
+                          toggleFollowing={toggleFollowing}
+                          isFollowing={isFollowingList.includes(
+                            post.author.name,
+                          )}
+                        />
+                      );
+                    })
+                  ) : (
+                    <p className="p-5 font-sans text-sm text-tertiary-200">
+                      No posts yet
+                    </p>
+                  )}
                 </div>
               </section>
             </div>

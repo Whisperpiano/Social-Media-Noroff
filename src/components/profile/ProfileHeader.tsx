@@ -63,7 +63,7 @@ export default function ProfileHeader({
               BIO
             </span>
             <p className="text-pretty text-sm font-normal text-tertiary-200 lg:text-sm">
-              {bio}
+              {bio === "null" ? "No bio provided yet" : bio}
             </p>
           </div>
         </div>

@@ -14,14 +14,7 @@ export default function ExploreTabs() {
       >
         Posts
       </NavLink>
-      <NavLink
-        to="/explore/hashtags"
-        className={({ isActive }) =>
-          `relative flex-1 ${isActive ? activeStyles : "text-tertiary-200 transition-colors duration-300 hover:text-tertiary-50"}`
-        }
-      >
-        Hashtags
-      </NavLink>
+
       <NavLink
         to="/explore/people"
         className={({ isActive }) =>
@@ -29,6 +22,14 @@ export default function ExploreTabs() {
         }
       >
         People
+      </NavLink>
+      <NavLink
+        to="/explore/hashtags"
+        className={({ isActive }) =>
+          `relative flex-1 ${isActive ? activeStyles : "pointer-events-none cursor-none text-tertiary-200 opacity-75 transition-colors duration-300 hover:text-tertiary-50"}`
+        }
+      >
+        Hashtags
       </NavLink>
     </div>
   );
