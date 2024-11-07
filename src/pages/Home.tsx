@@ -19,9 +19,9 @@ export default function Home() {
   useEffect(() => {
     if (!accessToken || !loggedUser) return;
 
-    async function fetchPostsByUser() {
+    async function fetchPosts() {
       try {
-        const response = await fetch(
+        const responseUserPosts = await fetch(
           `${API_URL}/${loggedUser}/posts?&_author=true&_comments=true&_reactions=true`,
           {
             method: "GET",
@@ -33,20 +33,10 @@ export default function Home() {
           },
         );
 
-        const { data } = await response.json();
-        setPosts((prev) => [...prev, ...data]);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchPostsByUser();
-  }, [accessToken, loggedUser]);
+        const { data: userData } = await responseUserPosts.json();
+        setPosts((prev) => [...prev, ...userData]);
 
-  useEffect(() => {
-    if (!accessToken || !loggedUser) return;
-    async function fetchPostsFromFollowing() {
-      try {
-        const response = await fetch(
+        const responseFollowingPosts = await fetch(
           `${API_URL2}/following?_author=true&_followers=true&_comments=true&_reactions=true`,
           {
             method: "GET",
@@ -57,9 +47,10 @@ export default function Home() {
             },
           },
         );
-        const { data } = await response.json();
+
+        const { data: followingData } = await responseFollowingPosts.json();
         setPosts((prev) =>
-          [...prev, ...data].sort(
+          [...prev, ...followingData].sort(
             (a, b) =>
               new Date(b.created).getTime() - new Date(a.created).getTime(),
           ),
@@ -68,7 +59,8 @@ export default function Home() {
         console.log(error);
       }
     }
-    fetchPostsFromFollowing();
+
+    fetchPosts();
   }, [accessToken, loggedUser]);
 
   console.log(isFollowingList);
