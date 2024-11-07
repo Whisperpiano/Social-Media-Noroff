@@ -23,6 +23,7 @@ export default function UserPanel({ userProfile }: UserPanelProps) {
           avatar={userProfile?.avatar}
           toggleFollowing={handleProfile}
           isFollowing={false}
+          isComment={false}
         />
         <PostEditor />
       </div>

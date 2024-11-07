@@ -12,6 +12,7 @@ interface UserProfileProps {
   avatar: Media | undefined;
   toggleFollowing: (nickname: string) => void;
   isFollowing: boolean;
+  isComment: boolean;
 }
 
 export default function UserProfile({
@@ -21,6 +22,7 @@ export default function UserProfile({
   avatar,
   toggleFollowing,
   isFollowing,
+  isComment,
 }: UserProfileProps) {
   return (
     <div
@@ -38,9 +40,8 @@ export default function UserProfile({
           <NickName nickname={nickname} />
         </div>
       </Link>
-      {isMainUser ? (
-        <Dropdown />
-      ) : (
+      {isMainUser && !isComment && <Dropdown />}
+      {!isMainUser && !isComment && (
         <FollowBtn
           isFollowing={isFollowing}
           toggleFollowing={toggleFollowing}

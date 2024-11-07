@@ -76,3 +76,13 @@ type Follower = {
   email: string;
   name: string;
 };
+
+export interface CommentResponse {
+  author: Author;
+  body: string;
+  created: Date;
+  id: number;
+  owner: string;
+  postId: number;
+  replyToId: number | null;
+}
