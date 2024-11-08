@@ -3,6 +3,7 @@ import Avatar from "../ui/Avatar";
 import NickName from "../userPanel/NickName";
 import { Media } from "../../lib/types";
 import FollowBtn from "../ui/FollowBtn";
+import Dropdown from "../dropdown/Dropdown";
 
 interface ProfileHeaderProps {
   name: string;
@@ -34,14 +35,18 @@ export default function ProfileHeader({
           <div className="l max-w-[100px] shadow-2xl shadow-black">
             <Avatar src={avatar.url} alt={avatar.alt} indicator={false} />
           </div>
+
           <div className="flex items-center gap-2.5 self-end">
             {isMainUser && (
-              <Link
-                to="/profile/edit"
-                className="btn-primary text-sm font-normal"
-              >
-                Edit Profile
-              </Link>
+              <>
+                <Dropdown isUserPanel={true} />
+                <Link
+                  to="/profile/edit"
+                  className="btn-primary text-sm font-normal"
+                >
+                  Edit Profile
+                </Link>
+              </>
             )}
             {!isMainUser && (
               <FollowBtn
