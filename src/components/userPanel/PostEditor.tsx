@@ -12,8 +12,13 @@ export default function PostEditor() {
   const { accessToken, loggedUser } = useLoggedUser();
   const imageInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
-  const { imageLink, fetchError, isUploading, isUploadSuccessful } =
-    useUploadImage(image);
+  const {
+    imageLink,
+    fetchError,
+    isUploading,
+    isUploadSuccessful,
+    setImageLink,
+  } = useUploadImage(image);
 
   function handleTextChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     setText(e.target.value);
@@ -59,6 +64,7 @@ export default function PostEditor() {
         navigate(`/post/${data.id}`);
         setText("");
         setImage(null);
+        setImageLink(null);
         return;
       } else {
         const data = await createPost(accessToken, {
@@ -72,6 +78,7 @@ export default function PostEditor() {
         navigate(`/post/${data.id}`);
         setText("");
         setImage(null);
+        setImageLink(null);
       }
     } catch (error) {
       console.log(error);

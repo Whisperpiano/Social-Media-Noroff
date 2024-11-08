@@ -47,5 +47,11 @@ export function useUploadImage(image: File | null) {
     uploadImage();
   }, [image]);
 
-  return { imageLink, fetchError, isUploading, isUploadSuccessful };
+  return {
+    imageLink,
+    fetchError,
+    isUploading,
+    isUploadSuccessful,
+    setImageLink,
+  };
 }
