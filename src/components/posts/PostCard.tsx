@@ -23,7 +23,7 @@ export default function PostCard({
   toggleFollowing,
   isFollowing,
 }: PostCardProps) {
-  const [actualPost, setActualPost] = useState<PostsResponse | null>();
+  const [actualPost, setActualPost] = useState<PostsResponse | null>(post);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function PostCard({
     const confirmation = confirm("Are you sure you want to delete this post?");
     if (!actualPost?.id || !confirmation) return;
     try {
-      deletePost(actualPost?.id);
+      deletePost(actualPost.id);
       setActualPost(null);
     } catch (error) {
       console.log(error);
