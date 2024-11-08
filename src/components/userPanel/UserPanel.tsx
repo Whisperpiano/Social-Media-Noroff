@@ -25,7 +25,7 @@ export default function UserPanel({ userProfile }: UserPanelProps) {
           isFollowing={false}
           isComment={false}
         />
-        <PostEditor rows={4} />
+        <PostEditor rows={4} isReply={false} />
       </div>
       <div className="fixed bottom-10 ml-5">
         <Footer />

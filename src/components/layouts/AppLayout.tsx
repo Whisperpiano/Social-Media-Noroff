@@ -51,9 +51,7 @@ export default function AppLayout() {
 
   return (
     <main className="relative flex min-h-screen flex-col bg-tertiary-900 font-sans text-tertiary-50">
-      {/* Modal Component */}
       <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
-
       <MobileHeader
         userProfile={userLoggedProfile}
         onOpenModal={handleOpenModal}

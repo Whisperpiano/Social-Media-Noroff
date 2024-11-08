@@ -5,13 +5,18 @@ import useLoggedUser from "../../lib/utils/useLoggedUser";
 import createPost from "../../lib/hooks/posts/useCreatePost";
 import { useUploadImage } from "../../lib/hooks/media/useUploadImage";
 import Loader from "../ui/Loader";
+import createComment from "../../lib/hooks/posts/useCreateComment";
 
 export default function PostEditor({
   onCloseModal,
   rows,
+  isReply,
+  replyId,
 }: {
   onCloseModal?: () => void;
   rows?: number;
+  isReply?: boolean;
+  replyId?: number;
 }) {
   const [text, setText] = useState<string>("");
   const [image, setImage] = useState<File | null>(null);
@@ -53,7 +58,7 @@ export default function PostEditor({
     setImage(file);
   }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmitPost(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (text.length >= 250) {
       alert("Your post is too long, please limit it to 250 characters");
@@ -93,8 +98,28 @@ export default function PostEditor({
     }
   }
 
+  async function handleSubmitReply(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (text.length >= 250) {
+      alert("Your reply is too long, please limit it to 250 characters");
+      return;
+    }
+    if (!accessToken || !replyId) return;
+    try {
+      await createComment(replyId, accessToken, text);
+      if (onCloseModal) onCloseModal();
+      navigate(`/post/${replyId}`);
+      setText("");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
-    <form name="post-editor" onSubmit={handleSubmit}>
+    <form
+      name="post-editor"
+      onSubmit={isReply ? handleSubmitReply : handleSubmitPost}
+    >
       <div className="w-full rounded-lg border border-tertiary-500 bg-tertiary-500">
         <div className="rounded-t-lg p-2.5">
           <label htmlFor="postTextarea" className="sr-only">
@@ -104,7 +129,9 @@ export default function PostEditor({
             id="postTextarea"
             rows={rows}
             className="w-full resize-none border-0 bg-inherit px-0 text-sm placeholder:text-tertiary-200/50 focus-within:ring-0 focus:outline-none focus:ring-0 lg:text-base"
-            placeholder="What are you thinking?"
+            placeholder={
+              isReply ? "Write your reply..." : "What are you thinking?"
+            }
             value={text}
             onChange={handleTextChange}
             required
@@ -145,8 +172,9 @@ export default function PostEditor({
           <div className="flex">
             <button
               type="button"
-              className="inline-flex cursor-pointer items-center justify-center rounded-lg p-1.5 text-tertiary-200/75 transition-colors duration-300 hover:bg-tertiary-300 hover:text-tertiary-50"
+              className="inline-flex cursor-pointer items-center justify-center rounded-lg p-1.5 text-tertiary-200/75 transition-colors duration-300 hover:bg-tertiary-300 hover:text-tertiary-50 disabled:cursor-not-allowed disabled:opacity-50"
               onClick={handleButtonImageClick}
+              disabled={isReply}
             >
               <PiImageFill size={20} />
 
@@ -194,7 +222,7 @@ export default function PostEditor({
               className="btn-primary text-sm disabled:cursor-not-allowed disabled:opacity-50"
               disabled={isUploading}
             >
-              Post
+              {isReply ? "Reply" : "Post"}
             </button>
           </div>
         </div>

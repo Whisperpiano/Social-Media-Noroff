@@ -11,6 +11,7 @@ interface PostFooterProps {
   id: number;
   userLiked: boolean;
   isUserLoggedPost: boolean;
+  onOpenReplyModal: () => void;
 }
 
 export default function PostFooter({
@@ -19,11 +20,15 @@ export default function PostFooter({
   id,
   userLiked,
   isUserLoggedPost,
+  onOpenReplyModal,
 }: PostFooterProps) {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-5">
-        <ReplyBtn comments={count.comments} />
+        <ReplyBtn
+          comments={count.comments}
+          onOpenReplyModal={onOpenReplyModal}
+        />
         <LikeBtn
           likes={count.reactions}
           id={id}
