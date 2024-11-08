@@ -1,10 +1,12 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Badge from "../ui/Badge";
 import UserProfile from "../userPanel/UserProfile";
 import PostFooter from "./PostFooter";
 import MainPostFooter from "./MainPostFooter";
 import { PostsResponse } from "../../lib/types";
 import useLoggedUser from "../../lib/utils/useLoggedUser";
+import { useEffect, useState } from "react";
+import { deletePost } from "../../lib/hooks/posts/deletePost";
 
 interface PostCardProps {
   post: PostsResponse;
@@ -21,13 +23,32 @@ export default function PostCard({
   toggleFollowing,
   isFollowing,
 }: PostCardProps) {
+  const [actualPost, setActualPost] = useState<PostsResponse | null>();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setActualPost(post);
+  }, [post]);
+
+  function handleDeletePost() {
+    const confirmation = confirm("Are you sure you want to delete this post?");
+    if (!actualPost?.id || !confirmation) return;
+    try {
+      deletePost(actualPost?.id);
+      setActualPost(null);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      navigate("/home");
+    }
+  }
   const location = useLocation();
   const { loggedUser } = useLoggedUser();
 
   const loggedUserLiked =
-    post.reactions?.[0]?.reactors?.includes(loggedUser) || false;
+    actualPost?.reactions?.[0]?.reactors?.includes(loggedUser) || false;
 
-  console.log(post);
+  if (!actualPost) return null;
 
   return (
     <>
@@ -36,22 +57,24 @@ export default function PostCard({
           <UserProfile
             isUserPanel={false}
             isMainUser={isUserLoggedPost}
-            nickname={post.author.name}
-            avatar={post.author.avatar}
+            nickname={actualPost?.author.name || ""}
+            avatar={actualPost?.author.avatar}
             toggleFollowing={toggleFollowing}
             isFollowing={isFollowing}
             isComment={false}
+            postId={actualPost?.id}
+            onDelete={handleDeletePost}
           />
 
           {location.pathname !== `/post/${post.id}` ? (
             <Link to={`/post/${post.id}`}>
               <p className="overflow-wrap-anywhere text-sm font-normal text-tertiary-50 lg:text-base">
-                {post.body}
+                {actualPost?.body}
               </p>
             </Link>
           ) : (
             <p className="overflow-wrap-anywhere text-sm font-normal text-tertiary-50 lg:text-base">
-              {post.body}
+              {actualPost?.body}
             </p>
           )}
 

@@ -1,8 +1,19 @@
 import { useState, useEffect, useRef } from "react";
 import { PiDotsThreeOutlineFill } from "react-icons/pi";
 import UserLoggedOptions from "./UserLoggedOptions";
+import PostOptions from "./PostOptions";
 
-export default function Dropdown({ isUserPanel }: { isUserPanel: boolean }) {
+interface DropdownProps {
+  isUserPanel: boolean;
+  postId?: number;
+  onDelete?: () => void;
+}
+
+export default function Dropdown({
+  isUserPanel,
+  postId,
+  onDelete,
+}: DropdownProps) {
   const [isVisible, setIsVisible] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -41,6 +52,14 @@ export default function Dropdown({ isUserPanel }: { isUserPanel: boolean }) {
       </button>
       {isUserPanel && (
         <UserLoggedOptions isVisible={isVisible} setIsVisible={setIsVisible} />
+      )}
+      {!isUserPanel && (
+        <PostOptions
+          isVisible={isVisible}
+          setIsVisible={setIsVisible}
+          postId={postId}
+          onDelete={onDelete}
+        />
       )}
     </div>
   );

@@ -13,6 +13,8 @@ interface UserProfileProps {
   toggleFollowing: (nickname: string) => void;
   isFollowing: boolean;
   isComment: boolean;
+  postId?: number;
+  onDelete?: () => void;
 }
 
 export default function UserProfile({
@@ -23,6 +25,8 @@ export default function UserProfile({
   toggleFollowing,
   isFollowing,
   isComment,
+  postId,
+  onDelete,
 }: UserProfileProps) {
   return (
     <div
@@ -40,7 +44,13 @@ export default function UserProfile({
           <NickName nickname={nickname} />
         </div>
       </Link>
-      {isMainUser && !isComment && <Dropdown isUserPanel={isUserPanel} />}
+      {isMainUser && !isComment && (
+        <Dropdown
+          isUserPanel={isUserPanel}
+          postId={postId}
+          onDelete={onDelete}
+        />
+      )}
       {!isMainUser && !isComment && (
         <FollowBtn
           isFollowing={isFollowing}

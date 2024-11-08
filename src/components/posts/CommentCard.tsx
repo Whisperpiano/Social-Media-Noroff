@@ -15,7 +15,7 @@ export default function CommentCard({
   toggleFollowing,
   isFollowing,
 }: CommentCardProps) {
-  console.log(comment);
+  console.log(comment.id);
   return (
     <article className="border-b border-tertiary-500">
       <section className="flex flex-col gap-5 p-5">
