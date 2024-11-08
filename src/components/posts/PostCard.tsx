@@ -7,6 +7,7 @@ import { PostsResponse } from "../../lib/types";
 import useLoggedUser from "../../lib/utils/useLoggedUser";
 import { useEffect, useState } from "react";
 import { deletePost } from "../../lib/hooks/posts/deletePost";
+import { ModalReply } from "../modal/ModalReply";
 
 interface PostCardProps {
   post: PostsResponse;
@@ -27,6 +28,7 @@ export default function PostCard({
   const navigate = useNavigate();
   const location = useLocation();
   const { loggedUser } = useLoggedUser();
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     setActualPost(post);
@@ -52,8 +54,17 @@ export default function PostCard({
 
   if (!actualPost) return null;
 
+  function handleOpenModal() {
+    setOpenModal(true);
+  }
+
+  function handleCloseModal() {
+    setOpenModal(false);
+  }
+
   return (
     <>
+      <ModalReply isOpen={openModal} onClose={handleCloseModal} post={post} />
       <article className="border-b border-tertiary-500">
         <section className="flex flex-col gap-5 p-5">
           <UserProfile
@@ -103,6 +114,7 @@ export default function PostCard({
               id={post.id}
               userLiked={loggedUserLiked}
               isUserLoggedPost={isUserLoggedPost}
+              onOpenReplyModal={handleOpenModal}
             />
           )}
         </section>

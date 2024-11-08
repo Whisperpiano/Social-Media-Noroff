@@ -13,8 +13,7 @@ const API_URL2 = "https://v2.api.noroff.dev/social/posts";
 export default function Home() {
   const { accessToken, loggedUser } = useLoggedUser();
   const [posts, setPosts] = useState<PostsResponse[]>([]);
-  const { userLoggedProfile, isFollowingList, toggleFollowing } =
-    useMainProfile();
+  const { isFollowingList, toggleFollowing } = useMainProfile();
 
   useEffect(() => {
     if (!accessToken || !loggedUser) return;
@@ -63,12 +62,10 @@ export default function Home() {
     fetchPosts();
   }, [accessToken, loggedUser]);
 
-  console.log(isFollowingList);
-  console.log(userLoggedProfile);
-
   return (
     <section className="relative flex w-full flex-1 flex-col xl:max-w-[600px]">
       <Header icon={PiHouseFill} text="Home" />
+
       <section className="relative h-full border-l border-tertiary-500 xl:border-x">
         {posts.length === 0 && <StartElement />}
         {posts.map((post) => {

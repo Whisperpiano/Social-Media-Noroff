@@ -1,7 +1,7 @@
 import { PiGlobeHemisphereEastFill } from "react-icons/pi";
-import ReplyBtn from "../ui/ReplyBtn";
 import LikeBtn from "../ui/LikeBtn";
 import { formatDate } from "../../lib/utils/formatDate";
+import CommentsBtn from "../ui/CommentsBtn";
 
 interface PostFooterProps {
   count: {
@@ -33,7 +33,7 @@ export default function MainPostFooter({
         )}
       </time>
       <div className="flex items-center gap-5">
-        <ReplyBtn comments={count.comments} />
+        <CommentsBtn comments={count.comments} />
         <LikeBtn
           likes={count.reactions}
           id={id}
