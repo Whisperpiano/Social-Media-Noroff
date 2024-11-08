@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Avatar from "../ui/Avatar";
-import Dropdown from "../ui/Dropdown";
+import Dropdown from "../dropdown/Dropdown";
 import NickName from "../userPanel/NickName";
 import { Media } from "../../lib/types";
 import FollowBtn from "../ui/FollowBtn";
@@ -36,7 +36,7 @@ export default function ProfileHeader({
             <Avatar src={avatar.url} alt={avatar.alt} indicator={false} />
           </div>
           <div className="flex items-center gap-2.5 self-end">
-            <Dropdown />
+            <Dropdown isUserPanel={true} />
             {isMainUser && (
               <Link
                 to="/profile/edit"

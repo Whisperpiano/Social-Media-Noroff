@@ -1,5 +1,5 @@
 import Divider from "./Divider";
-import Dropdown from "./Dropdown";
+import Dropdown from "../dropdown/Dropdown";
 
 export default function Hashtag({ text }: { text: string }) {
   return (
@@ -13,7 +13,7 @@ export default function Hashtag({ text }: { text: string }) {
             <span>250</span> posts
           </p>
         </div>
-        <Dropdown />
+        <Dropdown isUserPanel={false} />
       </div>
       <Divider />
     </>

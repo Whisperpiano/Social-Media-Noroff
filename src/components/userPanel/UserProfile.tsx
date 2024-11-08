@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Avatar from "../ui/Avatar";
-import Dropdown from "../ui/Dropdown";
+import Dropdown from "../dropdown/Dropdown";
 import NickName from "./NickName";
 import FollowBtn from "../ui/FollowBtn";
 import { Media } from "../../lib/types";
@@ -40,7 +40,7 @@ export default function UserProfile({
           <NickName nickname={nickname} />
         </div>
       </Link>
-      {isMainUser && !isComment && <Dropdown />}
+      {isMainUser && !isComment && <Dropdown isUserPanel={isUserPanel} />}
       {!isMainUser && !isComment && (
         <FollowBtn
           isFollowing={isFollowing}
