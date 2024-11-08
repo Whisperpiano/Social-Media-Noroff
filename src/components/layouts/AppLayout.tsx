@@ -5,6 +5,7 @@ import UserPanel from "../userPanel/UserPanel";
 import MobileHeader from "../MobileHeader";
 import { UserProfileResponse } from "../../lib/types";
 import useLoggedUser from "../../lib/utils/useLoggedUser";
+import { Modal } from "../modal/Modal";
 
 const API_URL = "https://v2.api.noroff.dev/social/profiles";
 
@@ -12,9 +13,11 @@ export default function AppLayout() {
   const [userLoggedProfile, setUserLoggedProfile] =
     useState<UserProfileResponse>();
   const { accessToken, loggedUser } = useLoggedUser();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (!accessToken || !loggedUser) return;
+
     async function getMainUserProfile() {
       const response = await fetch(
         `${API_URL}/${loggedUser}?_following=true&_followers=true&_posts=true`,
@@ -34,12 +37,27 @@ export default function AppLayout() {
       const { data } = await response.json();
       setUserLoggedProfile(data);
     }
+
     getMainUserProfile();
   }, [accessToken, loggedUser]);
 
+  function handleOpenModal() {
+    setIsModalOpen(true);
+  }
+
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
   return (
     <main className="relative flex min-h-screen flex-col bg-tertiary-900 font-sans text-tertiary-50">
-      <MobileHeader userProfile={userLoggedProfile} />
+      {/* Modal Component */}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
+
+      <MobileHeader
+        userProfile={userLoggedProfile}
+        onOpenModal={handleOpenModal}
+      />
       <div className="sm:flex sm:flex-row xl:min-h-screen xl:justify-center">
         <Navigation />
         <Outlet />

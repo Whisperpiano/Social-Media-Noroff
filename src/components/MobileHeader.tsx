@@ -7,16 +7,23 @@ import { UserProfileResponse } from "../lib/types";
 
 interface UserPanelProps {
   userProfile?: UserProfileResponse;
+  onOpenModal: () => void;
 }
 
-export default function MobileHeader({ userProfile }: UserPanelProps) {
+export default function MobileHeader({
+  userProfile,
+  onOpenModal,
+}: UserPanelProps) {
   return (
     <header className="sticky top-0 z-[100] flex w-full items-center justify-between border-b border-tertiary-500 bg-tertiary-900 px-5 py-2.5 sm:py-5 xl:hidden">
       <div className="-translate-x-2.5">
         <Logo />
       </div>
       <div className="flex items-center gap-3">
-        <button className="aspect-square w-full max-w-12 rounded-lg bg-primary-500 p-2.5">
+        <button
+          className="aspect-square w-full max-w-12 rounded-lg bg-primary-500 p-2.5"
+          onClick={onOpenModal}
+        >
           <PiPencilSimpleLineFill size={20} />
         </button>
         <Link to={`/profile/${userProfile?.name}`} className="max-w-10">

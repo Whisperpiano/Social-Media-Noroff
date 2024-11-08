@@ -6,7 +6,13 @@ import createPost from "../../lib/hooks/posts/useCreatePost";
 import { useUploadImage } from "../../lib/hooks/media/useUploadImage";
 import Loader from "../ui/Loader";
 
-export default function PostEditor() {
+export default function PostEditor({
+  onCloseModal,
+  rows,
+}: {
+  onCloseModal?: () => void;
+  rows?: number;
+}) {
   const [text, setText] = useState<string>("");
   const [image, setImage] = useState<File | null>(null);
   const { accessToken, loggedUser } = useLoggedUser();
@@ -61,6 +67,7 @@ export default function PostEditor() {
           title,
           body: text,
         });
+        if (onCloseModal) onCloseModal();
         navigate(`/post/${data.id}`);
         setText("");
         setImage(null);
@@ -75,6 +82,7 @@ export default function PostEditor() {
             alt: "",
           },
         });
+        if (onCloseModal) onCloseModal();
         navigate(`/post/${data.id}`);
         setText("");
         setImage(null);
@@ -94,7 +102,7 @@ export default function PostEditor() {
           </label>
           <textarea
             id="postTextarea"
-            rows={4}
+            rows={rows}
             className="w-full resize-none border-0 bg-inherit px-0 text-sm placeholder:text-tertiary-200/50 focus-within:ring-0 focus:outline-none focus:ring-0 lg:text-base"
             placeholder="What are you thinking?"
             value={text}
@@ -153,7 +161,7 @@ export default function PostEditor() {
             />
             <button
               type="button"
-              className="inline-flex cursor-pointer items-center justify-center rounded-lg p-1.5 text-tertiary-200/75 transition-colors duration-300 hover:bg-tertiary-300 hover:text-tertiary-50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="hidden cursor-pointer items-center justify-center rounded-lg p-1.5 text-tertiary-200/75 transition-colors duration-300 hover:bg-tertiary-300 hover:text-tertiary-50 disabled:cursor-not-allowed disabled:opacity-50 sm:inline-flex"
               disabled
             >
               <PiGifFill size={20} />
@@ -161,7 +169,7 @@ export default function PostEditor() {
             </button>
             <button
               type="button"
-              className="inline-flex cursor-pointer items-center justify-center rounded-lg p-1.5 text-tertiary-200/75 transition-colors duration-300 hover:bg-tertiary-300 hover:text-tertiary-50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="hidden cursor-pointer items-center justify-center rounded-lg p-1.5 text-tertiary-200/75 transition-colors duration-300 hover:bg-tertiary-300 hover:text-tertiary-50 disabled:cursor-not-allowed disabled:opacity-50 sm:inline-flex"
               disabled
             >
               <PiSmileyFill size={20} />

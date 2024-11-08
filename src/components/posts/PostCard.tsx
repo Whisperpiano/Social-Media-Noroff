@@ -89,7 +89,7 @@ export default function PostCard({
           )}
 
           {post.tags[0] !== "" && (
-            <div className="flex gap-2.5">
+            <div className="flex flex-wrap gap-2.5">
               {post.tags.map(
                 (tag) => tag !== "" && <Badge text={tag} key={tag} />,
               )}
