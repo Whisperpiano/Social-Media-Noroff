@@ -28,7 +28,7 @@ export default function PostOptions({
       >
         <li>
           <NavLink
-            to={`/profile/edit`}
+            to={`/post/${postId}`}
             className="block px-4 py-2 transition-colors duration-300 hover:bg-tertiary-300 hover:text-white"
             onClick={() => setIsVisible(false)}
           >
