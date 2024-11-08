@@ -25,6 +25,8 @@ export default function PostCard({
 }: PostCardProps) {
   const [actualPost, setActualPost] = useState<PostsResponse | null>(post);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { loggedUser } = useLoggedUser();
 
   useEffect(() => {
     setActualPost(post);
@@ -39,11 +41,11 @@ export default function PostCard({
     } catch (error) {
       console.log(error);
     } finally {
-      navigate("/home");
+      if (!location.pathname.includes("/profile")) {
+        navigate("/home");
+      }
     }
   }
-  const location = useLocation();
-  const { loggedUser } = useLoggedUser();
 
   const loggedUserLiked =
     actualPost?.reactions?.[0]?.reactors?.includes(loggedUser) || false;
