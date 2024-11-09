@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { UserProfileResponse } from "../../types";
 
 const API_URL = "https://v2.api.noroff.dev/social/profiles";
-const API_KEY = "b58ae560-67eb-499f-b95c-97188b151f34";
+const apiKey = import.meta.env.VITE_API_KEY;
 
 export default function useReadProfile(nickname: string, accessToken: string) {
   const [profile, setProfile] = useState<UserProfileResponse>();
@@ -20,7 +20,7 @@ export default function useReadProfile(nickname: string, accessToken: string) {
           {
             headers: {
               "Content-Type": "application/json",
-              "X-Noroff-API-Key": API_KEY,
+              "X-Noroff-API-Key": apiKey,
               Authorization: `Bearer ${accessToken}`,
             },
           },

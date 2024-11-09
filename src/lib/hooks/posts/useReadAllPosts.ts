@@ -4,6 +4,7 @@ import useLoggedUser from "../../utils/useLoggedUser";
 
 const API_URL2 = "https://v2.api.noroff.dev/social/posts";
 const LIMIT = 12;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 export default function useReadAllPosts() {
   const [posts, setPosts] = useState<PostsResponse[]>([]);
@@ -25,7 +26,7 @@ export default function useReadAllPosts() {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              "X-Noroff-API-Key": "b58ae560-67eb-499f-b95c-97188b151f34",
+              "X-Noroff-API-Key": apiKey,
               Authorization: `Bearer ${accessToken}`,
             },
           },

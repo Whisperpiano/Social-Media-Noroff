@@ -3,6 +3,7 @@ import { UserProfileResponse } from "../../types";
 
 const API_URL = "https://v2.api.noroff.dev/social/profiles";
 const LIMIT = 25;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 export function useSearchProfiles(query: string, accessToken: string) {
   const [profiles, setProfiles] = useState<UserProfileResponse[]>([]);
@@ -18,7 +19,7 @@ export function useSearchProfiles(query: string, accessToken: string) {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "X-Noroff-API-Key": "b58ae560-67eb-499f-b95c-97188b151f34",
+            "X-Noroff-API-Key": apiKey,
             Authorization: `Bearer ${accessToken}`,
           },
         },

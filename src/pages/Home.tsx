@@ -9,6 +9,7 @@ import useMainProfile from "../lib/hooks/profile/useMainProfile";
 
 const API_URL = "https://v2.api.noroff.dev/social/profiles";
 const API_URL2 = "https://v2.api.noroff.dev/social/posts";
+const apiKey = import.meta.env.VITE_API_KEY;
 
 export default function Home() {
   const { accessToken, loggedUser } = useLoggedUser();
@@ -26,7 +27,7 @@ export default function Home() {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              "X-Noroff-API-Key": "b58ae560-67eb-499f-b95c-97188b151f34",
+              "X-Noroff-API-Key": apiKey,
               Authorization: `Bearer ${accessToken}`,
             },
           },
@@ -41,7 +42,7 @@ export default function Home() {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              "X-Noroff-API-Key": "b58ae560-67eb-499f-b95c-97188b151f34",
+              "X-Noroff-API-Key": apiKey,
               Authorization: `Bearer ${accessToken}`,
             },
           },

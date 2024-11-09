@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 const API_URL = "https://v2.api.noroff.dev/auth/register";
-// const API_KEY = "b58ae560-67eb-499f-b95c-97188b151f34"
-// const IMGUR_CLIENT_ID="a0af399aae11d62"
 
 export function useRegister() {
   const [fetchError, setFetchError] = useState<string>("");

@@ -7,6 +7,8 @@ import { UserProfileResponse } from "../../lib/types";
 import useLoggedUser from "../../lib/utils/useLoggedUser";
 import { Modal } from "../modal/Modal";
 
+const apiKey = import.meta.env.VITE_API_KEY;
+
 const API_URL = "https://v2.api.noroff.dev/social/profiles";
 
 export default function AppLayout() {
@@ -25,7 +27,7 @@ export default function AppLayout() {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "X-Noroff-API-Key": "b58ae560-67eb-499f-b95c-97188b151f34",
+            "X-Noroff-API-Key": apiKey,
             Authorization: `Bearer ${accessToken}`,
           },
         },

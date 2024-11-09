@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const IMGUR_CLIENT_ID = "a0af399aae11d62";
+const imgurClientId = import.meta.env.VITE_IMGUR_CLIENT_ID;
 
 export function useUploadImage(image: File | null) {
   const [imageLink, setImageLink] = useState<string | null>(null);
@@ -21,7 +21,7 @@ export function useUploadImage(image: File | null) {
         const response = await fetch("https://api.imgur.com/3/image", {
           method: "POST",
           headers: {
-            Authorization: `Client-ID ${IMGUR_CLIENT_ID}`,
+            Authorization: `Client-ID ${imgurClientId}`,
           },
           body: formData,
         });

@@ -1,5 +1,7 @@
 const API_URL_POSTS = "https://v2.api.noroff.dev/social/posts";
 
+const apiKey = import.meta.env.VITE_API_KEY;
+
 export default async function likePost(
   id: number,
   symbol: string,
@@ -10,7 +12,7 @@ export default async function likePost(
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "X-Noroff-API-Key": "b58ae560-67eb-499f-b95c-97188b151f34",
+        "X-Noroff-API-Key": apiKey,
         Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify({ symbol }),
