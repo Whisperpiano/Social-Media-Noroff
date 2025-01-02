@@ -1,3 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply min-w-[100px] rounded-lg bg-primary-600 px-4 py-2 text-center font-sans font-semibold text-white transition-colors duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary-700 text-tertiary-50;
+  }
+
+  .btn-secondary {
+    @apply min-w-[100px] rounded-lg border border-primary-500 bg-transparent px-4 py-2 text-center font-sans font-semibold text-primary-500 transition-colors duration-300;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-primary-900 text-primary-100;
+  }
+}
+
+.overflow-wrap-anywhere {
+  overflow-wrap: anywhere;
+}
