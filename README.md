@@ -16,6 +16,8 @@
     <a href="https://github.com/Whisperpiano/Social-Media-Noroff/issues">Report Bug</a>
     ·
     <a href="https://github.com/Whisperpiano/Social-Media-Noroff/issues">Request Feature</a>
+    ·
+    <a href="https://noroff-social.netlify.app">Preview</a>
   </p>
 </div>
 
